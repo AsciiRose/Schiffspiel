@@ -1,0 +1,15 @@
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\bin\Debug\dummy.exe
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\bin\Debug\dummy.pdb
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\obj\x86\Debug\dummy.Form1.resources
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\obj\x86\Debug\dummy.Properties.Resources.resources
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\obj\x86\Debug\dummy.csproj.GenerateResource.Cache
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\obj\x86\Debug\dummy.exe
+C:\Users\bbsi\AppData\Local\Temporary Projects\dummy\obj\x86\Debug\dummy.pdb
+E:\Permanent\dummy\obj\x86\Debug\dummy.exe
+E:\Permanent\dummy\obj\x86\Debug\dummy.pdb
+E:\Permanent\dummy\bin\Debug\dummy.exe
+E:\Permanent\dummy\bin\Debug\dummy.pdb
+E:\Permanent\dummy\obj\x86\Debug\dummy.csprojResolveAssemblyReference.cache
+E:\Permanent\dummy\obj\x86\Debug\dummy.Form1.resources
+E:\Permanent\dummy\obj\x86\Debug\dummy.Properties.Resources.resources
+E:\Permanent\dummy\obj\x86\Debug\dummy.csproj.GenerateResource.Cache

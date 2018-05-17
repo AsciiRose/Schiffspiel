@@ -1,0 +1,7 @@
+E:\Permanent\dummy\bin\Release\dummy.exe
+E:\Permanent\dummy\bin\Release\dummy.pdb
+E:\Permanent\dummy\obj\x86\Release\dummy.Form1.resources
+E:\Permanent\dummy\obj\x86\Release\dummy.Properties.Resources.resources
+E:\Permanent\dummy\obj\x86\Release\dummy.csproj.GenerateResource.Cache
+E:\Permanent\dummy\obj\x86\Release\dummy.exe
+E:\Permanent\dummy\obj\x86\Release\dummy.pdb
