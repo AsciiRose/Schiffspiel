@@ -36,7 +36,7 @@ namespace grundspiel
 
         public void moveDown()
         {
-            position.Y--;
+            position.Y++;
         }
 
         public void moveLeft()
@@ -46,7 +46,8 @@ namespace grundspiel
 
         public void moveUp()
         {
-            position.Y++;
+            position.Y--;
         }
     }
 }
+

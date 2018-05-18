@@ -11,38 +11,23 @@ namespace grundspiel
 {
     public partial class Form1 : Form
     {
-        Random r;
-        Spieler spieler1, spieler2;
-
-        Spieler spielerAktiv;
-
-        int[,] feld;
-
+        private Spiel spiel;
 
         public Form1()
         {
             InitializeComponent();
-            r = new Random();
-            spieler1 = null;
-            spieler2 = null;
-
-            feld = new int[10, 5];
-
-            renderFeld();
+            spiel = null;
         }
 
         private void btnWuerfeln_Click(object sender, EventArgs e)
         {
-            spielerAktiv.setSchritte(r.Next(1, 7));
+            spiel.wuerfeln();
             updateLabels();
         }
 
         private void btnSwitchPlayer_Click(object sender, EventArgs e)
         {
-            if (spielerAktiv == spieler1)
-                changeActivePlayer(spieler2);
-            else
-                changeActivePlayer(spieler1);
+            spiel.spielerWechseln();
             updateLabels();
         }
 
@@ -53,73 +38,46 @@ namespace grundspiel
 
         private void setupNewGame()
         {
-            spieler1 = new Spieler("Spieler1", 4, 3);
-            spieler2 = new Spieler("Spieler2", 5, 1);
-
-            changeActivePlayer(spieler1);
+            spiel = new Spiel(10, 5);
             renderFeld();
-        }
-
-        private void changeActivePlayer(Spieler newActive)
-        {
-            spielerAktiv = newActive;
-            spielerAktiv.resetSchritte();
+            updateLabels();
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            spielerAktiv.moveUp();
+            spiel.spielerHochlaufen();
+            renderFeld();
+            updateLabels();
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            spielerAktiv.moveRight();
+            spiel.spielerRechtslaufen();
+            renderFeld();
+            updateLabels();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            spielerAktiv.moveDown();
+            spiel.spielerRunterlaufen();
+            renderFeld();
+            updateLabels();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            spielerAktiv.moveLeft();
-        }
-
-        private bool canMoveTo(int x, int y)
-        {
-            if (x >= 0 && y >= 0 && x < feld.GetLength(0) && y < feld.GetLength(1))
-                if (!objectInField(x, y))
-                    return true;
-
-            return false;
-        }
-
-
-        private bool objectInField(int x, int y)
-        {
-            return false;
-        }
-
-        private bool move()
-        {
-            if (spielerAktiv.getSchritte() > 0)
-            {
-                spielerAktiv.schrittRunterzaehlen();
-                lblWuerfel.Text = Convert.ToString(spielerAktiv.getSchritte());
-                return true;
-            }
-
-            return false;
+            spiel.spielerLinkslaufen();
+            renderFeld();
+            updateLabels();
         }
 
         private void updateLabels()
         {
-            lblWuerfel.Text = spielerAktiv.getSchritte().ToString();
-            lblSpieler.Text = spielerAktiv.getBezeichnung();
+            lblWuerfel.Text = spiel.getSpielerAktivSchritte().ToString();
+            lblSpieler.Text = spiel.getSpielerAktivName();
         }
 
-
+        // zu ueberarbeiten
         private void renderFeld()
         {
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -129,17 +87,16 @@ namespace grundspiel
             SolidBrush blue = new SolidBrush(Color.Blue);            
             Pen pen = new Pen(Color.Black, 2);
 
-            for (int i = 0; i < feld.GetLength(0); i++)
+            for (int i = 0; i < spiel.getBreite(); i++)
             {
-                for (int j = 0; j < feld.GetLength(1); j++)
+                for (int j = 0; j < spiel.getHoehe(); j++)
                     g.DrawRectangle(pen, 10 + 80 * i, 10 + 80 * j, 80, 80);
-            }           
+            }   
 
-
-            if (spieler1 != null && spieler2 != null)
+            if (spiel != null)
             {
-                g.FillEllipse(red, 10 + 80 * spieler1.getPosition().X, 10 + 80 * spieler1.getPosition().Y, 80, 80);
-                g.FillEllipse(blue, 10 + 80 * spieler2.getPosition().X, 10 + 80 * spieler2.getPosition().Y, 80, 80);
+                g.FillEllipse(red, 10 + 80 * spiel.getSpieler1().getPosition().X, 10 + 80 * spiel.getSpieler1().getPosition().Y, 80, 80);
+                g.FillEllipse(blue, 10 + 80 * spiel.getSpieler2().getPosition().X, 10 + 80 * spiel.getSpieler2().getPosition().Y, 80, 80);
             }
 
             pictureBox1.Image = newImg;

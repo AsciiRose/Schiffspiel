@@ -5,3 +5,10 @@ E:\Permanent\grundspiel\bin\Debug\dummy.exe
 E:\Permanent\grundspiel\bin\Debug\dummy.pdb
 E:\Permanent\grundspiel\obj\x86\Debug\grundspiel.Form1.resources
 E:\Permanent\grundspiel\obj\x86\Debug\grundspiel.Properties.Resources.resources
+E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\dummy.exe
+E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\dummy.pdb
+E:\Permanent\Schiffspiel\Schiffspiel-master\bin\Debug\dummy.exe
+E:\Permanent\Schiffspiel\Schiffspiel-master\bin\Debug\dummy.pdb
+E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.Form1.resources
+E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.Properties.Resources.resources
+E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.csproj.GenerateResource.Cache

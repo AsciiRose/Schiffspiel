@@ -14,7 +14,7 @@ namespace grundspiel
             : base(name, positionX, positionY)
         {
             schritte = 0;
-            inventar = new List<Objekt>();            
+            inventar = new List<Objekt>();
         }
 
         public int getSchritte()
