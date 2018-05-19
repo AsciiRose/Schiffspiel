@@ -13,21 +13,31 @@ namespace grundspiel
         private Spieler spielerAktiv;
         private int breiteFeld;
         private int hoeheFeld;
-        List<Objekt> objekte;
+        private int schritte;
+        private bool darfWuerfeln;
+        List<Objekt> feldObjekte;
 
         public Spiel(int breite, int hoehe)
         {
             this.breiteFeld = breite;
             this.hoeheFeld = hoehe;
-            objekte = new List<Objekt>();
+            feldObjekte = new List<Objekt>();
 
             rand = new Random();
             spieler1 = new Spieler("Spieler1", generateRandomPositionOnField());
-            objekte.Add(spieler1);
+            feldObjekte.Add(spieler1);
             spieler2 = new Spieler("Spieler2", generateRandomPositionOnField());
-            objekte.Add(spieler2);
+            feldObjekte.Add(spieler2);
 
-            spielerAktiv = spieler1;
+            spielerAktiv = null;
+            startNewRound();
+        }
+
+        public void startNewRound()
+        {
+            schritte = 0;
+            darfWuerfeln = true;
+            spielerAktivWechseln();
         }
 
         public int getBreite()
@@ -53,7 +63,7 @@ namespace grundspiel
         {
             Point feld = new Point(x, y);
 
-            foreach (Objekt objekt in objekte)
+            foreach (Objekt objekt in feldObjekte)
                 if (objekt.getPosition() == feld)
                     return true;
 
@@ -62,7 +72,8 @@ namespace grundspiel
 
         public void wuerfeln()
         {
-            spielerAktiv.setSchritte(rand.Next(1, 7));
+            setSchritte(rand.Next(1, 7));
+            darfWuerfeln = false;
         }
 
         public String getSpielerAktivName()
@@ -70,59 +81,57 @@ namespace grundspiel
             return spielerAktiv.getBezeichnung();
         }
 
-        public int getSpielerAktivSchritte()
+        private void spielerAktivWechseln()
         {
-            return spielerAktiv.getSchritte();
-        }
+            if(spielerAktiv == null)
+            {
+                if (rand.Next(1, 3) == 1)
+                    spielerAktiv = spieler1;
+                else spielerAktiv = spieler2;
+            }
 
-        public void spielerWechseln()
-        {
             if (spielerAktiv == spieler1)
                 spielerAktiv = spieler2;
             else
                 spielerAktiv = spieler1;
 
-            spielerAktiv.resetSchritte();
+            resetSchritte();
         }
 
         public void spielerHochlaufen()
         {
-            if (spielerAktiv.getSchritte() > 0)
-                if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y - 1))
-                {  
-                    spielerAktiv.moveUp();
-                    spielerAktiv.schrittRunterzaehlen();
-                }
+            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y - 1))
+            {  
+                spielerAktiv.moveUp();
+                schrittRunterzaehlen();
+            }
         }
 
         public void spielerRunterlaufen()
         {
-            if (spielerAktiv.getSchritte() > 0)
-                if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y + 1))
-                {
-                    spielerAktiv.moveDown();
-                    spielerAktiv.schrittRunterzaehlen();
-                }
+            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y + 1))
+            {
+                spielerAktiv.moveDown();
+                schrittRunterzaehlen();
+            }
         }
 
         public void spielerLinkslaufen()
         {
-            if (spielerAktiv.getSchritte() > 0)
-                if (canMoveTo(spielerAktiv.getPosition().X - 1, spielerAktiv.getPosition().Y))
-                {
-                    spielerAktiv.moveLeft(); 
-                    spielerAktiv.schrittRunterzaehlen();
-                }
+            if (canMoveTo(spielerAktiv.getPosition().X - 1, spielerAktiv.getPosition().Y))
+            {
+                spielerAktiv.moveLeft(); 
+                schrittRunterzaehlen();
+            }
         }
 
         public void spielerRechtslaufen()
         {
-            if (spielerAktiv.getSchritte() > 0)
-                if (canMoveTo(spielerAktiv.getPosition().X + 1, spielerAktiv.getPosition().Y))
-                {
-                    spielerAktiv.moveRight();
-                    spielerAktiv.schrittRunterzaehlen();
-                }
+            if (canMoveTo(spielerAktiv.getPosition().X + 1, spielerAktiv.getPosition().Y))
+            {
+                spielerAktiv.moveRight();
+                schrittRunterzaehlen();
+            }
         }
 
         // TODO: keine Objekte zurückgeben, muss überarbeitet werden
@@ -148,6 +157,39 @@ namespace grundspiel
             } while (feldBegehbar(x, y));
 
             return new Point(x, y);
+        }
+
+        public int getSchritte()
+        {
+            return schritte;
+        }
+
+        public void resetSchritte()
+        {
+            schritte = 0;
+        }
+
+        public void schrittRunterzaehlen()
+        {
+            schritte--;
+        }
+
+        public void setSchritte(int schritte)
+        {
+            this.schritte = schritte;
+        }
+
+        public bool getDarfWueferln()
+        {
+            return darfWuerfeln;
+        }
+
+        public void setDarfWuerfeln()
+        {
+            if (darfWuerfeln)
+                darfWuerfeln = false;
+            else
+                darfWuerfeln = true;
         }
     }
 }

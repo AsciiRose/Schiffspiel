@@ -18,22 +18,55 @@ namespace grundspiel
             InitializeComponent();
             spiel = null;
         }
+        
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            setupNewGame();
+        }
+
+        private void setupNewGame()
+        {
+            if (spiel != null)
+            {
+                DialogResult resultNeuesSpiel = MessageBox.Show("Aktuell läuft noch ein Spiel. Willst du das aktuelle Spiel verwerfen und ein neues beginnen?", "Neues Spiel", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3);
+                if(resultNeuesSpiel != DialogResult.Yes)
+                    return;
+            }
+
+            spiel = new Spiel(10, 5);
+            renderFeld();
+            updateLabels();
+            enableButtons();
+            setNewRoundButtons();
+        }
+
+        private void setNewRoundButtons()
+        {
+            if(spiel.getDarfWueferln())
+            {
+                btnWuerfeln.Enabled = true;
+                btnWuerfeln.Select();
+                btnSwitchPlayer.Enabled = false;
+            }
+            else
+            {
+                btnWuerfeln.Enabled = false;
+                btnSwitchPlayer.Enabled = true;
+            }
+        }
 
         private void btnWuerfeln_Click(object sender, EventArgs e)
         {
             spiel.wuerfeln();
             updateLabels();
+            setNewRoundButtons();
         }
 
         private void btnSwitchPlayer_Click(object sender, EventArgs e)
         {
-            spiel.spielerWechseln();
+            spiel.startNewRound();
             updateLabels();
-        }
-
-        private void btnNewGame_Click(object sender, EventArgs e)
-        {
-            setupNewGame();
+            setNewRoundButtons();
         }
 
         private void enableButtons()
@@ -48,14 +81,6 @@ namespace grundspiel
             editorToolStripMenuItem.Enabled = true;
         }
 
-        private void setupNewGame()
-        {
-            spiel = new Spiel(10, 5);
-            renderFeld();
-            updateLabels();
-            enableButtons();
-        }
-
         private void btnUp_Click(object sender, EventArgs e)
         {
             spielerHochlaufen();
@@ -63,9 +88,14 @@ namespace grundspiel
 
         private void spielerHochlaufen()
         {
-            spiel.spielerHochlaufen();
-            renderFeld();
-            updateLabels();
+            if (spiel.getSchritte() > 0)
+            {
+                spiel.spielerHochlaufen();
+                renderFeld();
+                updateLabels();
+            }
+            else
+                btnSwitchPlayer.Select();
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -75,9 +105,14 @@ namespace grundspiel
 
         private void spielerRechtslaufen()
         {
-            spiel.spielerRechtslaufen();
-            renderFeld();
-            updateLabels();
+            if (spiel.getSchritte() > 0)
+            {
+                spiel.spielerRechtslaufen();
+                renderFeld();
+                updateLabels();
+            }
+            else
+                btnSwitchPlayer.Select();
         }
 
         private void btnDown_Click(object sender, EventArgs e)
@@ -87,9 +122,14 @@ namespace grundspiel
 
         private void spielerRunterlaufen()
         {
-            spiel.spielerRunterlaufen();
-            renderFeld();
-            updateLabels();
+            if (spiel.getSchritte() > 0)
+            {
+                spiel.spielerRunterlaufen();
+                renderFeld();
+                updateLabels();
+            }
+            else
+                btnSwitchPlayer.Select();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -99,14 +139,19 @@ namespace grundspiel
 
         private void spielerLinkslaufen()
         {
-            spiel.spielerLinkslaufen();
-            renderFeld();
-            updateLabels();
+            if (spiel.getSchritte() > 0)
+            {
+                spiel.spielerLinkslaufen();
+                renderFeld();
+                updateLabels();
+            }
+            else
+                btnSwitchPlayer.Select();
         }
 
         private void updateLabels()
         {
-            lblWuerfel.Text = spiel.getSpielerAktivSchritte().ToString();
+            lblWuerfel.Text = spiel.getSchritte().ToString();
             lblSpieler.Text = spiel.getSpielerAktivName();
         }
 
@@ -180,7 +225,7 @@ namespace grundspiel
         {
             if (spiel != null)
             {
-                DialogResult resultBeenden = MessageBox.Show("Willst du das Spiel wirklich beenden?", "Beenden", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult resultBeenden = MessageBox.Show("Aktuell läuft noch ein Spiel. Willst du das Spiel wirklich beenden?", "Beenden", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (resultBeenden != DialogResult.Yes)
                     e.Cancel = true;
             }
