@@ -58,12 +58,22 @@ namespace grundspiel
 
         private void btnUp_Click(object sender, EventArgs e)
         {
+            spielerHochlaufen();
+        }
+
+        private void spielerHochlaufen()
+        {
             spiel.spielerHochlaufen();
             renderFeld();
             updateLabels();
         }
 
         private void btnRight_Click(object sender, EventArgs e)
+        {
+            spielerRechtslaufen();
+        }
+
+        private void spielerRechtslaufen()
         {
             spiel.spielerRechtslaufen();
             renderFeld();
@@ -72,12 +82,22 @@ namespace grundspiel
 
         private void btnDown_Click(object sender, EventArgs e)
         {
+            spielerRunterlaufen();
+        }
+
+        private void spielerRunterlaufen()
+        {
             spiel.spielerRunterlaufen();
             renderFeld();
             updateLabels();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
+        {
+            spielerLinkslaufen();
+        }
+
+        private void spielerLinkslaufen()
         {
             spiel.spielerLinkslaufen();
             renderFeld();
@@ -117,14 +137,17 @@ namespace grundspiel
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
-                spiel.spielerHochlaufen();
-            if (e.KeyCode == Keys.Down)
-                spiel.spielerRunterlaufen();
-            if (e.KeyCode == Keys.Left)
-                spiel.spielerLinkslaufen();
-            if (e.KeyCode == Keys.Right)
-                spiel.spielerRechtslaufen();
+            if (spiel != null)
+            {
+                if (e.KeyCode == Keys.W)
+                    spielerHochlaufen();
+                if (e.KeyCode == Keys.S)
+                    spielerRunterlaufen();
+                if (e.KeyCode == Keys.A)
+                    spielerLinkslaufen();
+                if (e.KeyCode == Keys.D)
+                    spielerRechtslaufen();
+            }
         }
 
         private void btnEditor_Click(object sender, EventArgs e)
