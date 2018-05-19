@@ -34,7 +34,6 @@ namespace grundspiel
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             setupNewGame();
-            enableButtons();
         }
 
         private void enableButtons()
@@ -45,6 +44,8 @@ namespace grundspiel
             btnRight.Enabled = true;
             btnWuerfeln.Enabled = true;
             btnSwitchPlayer.Enabled = true;
+            btnEditor.Enabled = true;
+            editorToolStripMenuItem.Enabled = true;
         }
 
         private void setupNewGame()
@@ -52,6 +53,7 @@ namespace grundspiel
             spiel = new Spiel(10, 5);
             renderFeld();
             updateLabels();
+            enableButtons();
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -127,8 +129,38 @@ namespace grundspiel
 
         private void btnEditor_Click(object sender, EventArgs e)
         {
+            startEditor();
+        }
+
+        private void startEditor()
+        {
             Form2 editor = new Form2(this);
             editor.ShowDialog();
+        }
+
+        private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setupNewGame();
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            startEditor();
+        }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (spiel != null)
+            {
+                DialogResult resultBeenden = MessageBox.Show("Willst du das Spiel wirklich beenden?", "Beenden", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultBeenden != DialogResult.Yes)
+                    e.Cancel = true;
+            }
         }
     }
 }
