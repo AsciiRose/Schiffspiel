@@ -124,5 +124,11 @@ namespace grundspiel
             if (e.KeyCode == Keys.Right)
                 spiel.spielerRechtslaufen();
         }
+
+        private void btnEditor_Click(object sender, EventArgs e)
+        {
+            Form2 editor = new Form2(this);
+            editor.ShowDialog();
+        }
     }
 }
