@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -10,8 +11,8 @@ namespace grundspiel
         private List<Objekt> inventar;
         private int schritte;
 
-        public Spieler(string name, int positionX, int positionY)
-            : base(name, positionX, positionY)
+        public Spieler(string name, Point position)
+            : base(name, position)
         {
             schritte = 0;
             inventar = new List<Objekt>();

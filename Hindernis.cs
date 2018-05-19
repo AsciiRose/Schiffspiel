@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace grundspiel
         private bool beweglich;
 
         public Hindernis(string bezeichnung, int positionX, int positionY, bool beweglich)
-            : base(bezeichnung, positionX, positionY)
+            : base(bezeichnung, new Point(positionX, positionY))
         {
             this.beweglich = beweglich;
         }

@@ -13,10 +13,10 @@ namespace grundspiel
         private Point position;
 
 
-        public Objekt(string bezeichnung, int positionX, int positionY)
+        public Objekt(string bezeichnung, Point position)
         {
             this.bezeichnung = bezeichnung;
-            this.position = new Point(positionX, positionY);
+            this.position = position;
         }
 
         public string getBezeichnung()

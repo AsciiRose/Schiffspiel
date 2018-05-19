@@ -20,8 +20,8 @@ namespace grundspiel
             this.hoeheFeld = hoehe;
 
             rand = new Random();
-            spieler1 = new Spieler("Spieler1", 4,3);
-            spieler2 = new Spieler("Spieler2",1,2);
+            spieler1 = new Spieler("Spieler1", generateRandomPositionOnField());
+            spieler2 = new Spieler("Spieler2", generateRandomPositionOnField());
 
             spielerAktiv = spieler1;
         }
@@ -117,14 +117,29 @@ namespace grundspiel
                 }
         }
 
+        // TODO: keine Objekte zurückgeben, muss überarbeitet werden
         public Spieler getSpieler1()
         {
             return spieler1;
         }
 
+        // TODO: keine Objekte zurückgeben, muss überarbeitet werden
         public Spieler getSpieler2()
         {
             return spieler2;
+        }
+
+        private Point generateRandomPositionOnField()
+        {
+            int x, y;
+
+            do
+            {
+                x = rand.Next(0, breiteFeld);
+                y = rand.Next(0, hoeheFeld);
+            } while (objectInField(x, y));
+
+            return new Point(x, y);
         }
     }
 }
