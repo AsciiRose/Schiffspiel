@@ -10,8 +10,8 @@ namespace grundspiel
     {
         private int wert;
 
-        public Item(string bezeichnung, int positionX, int positionY, int wert)
-            : base(bezeichnung, new Point(positionX, positionY))
+        public Item(string bezeichnung, int positionX, int positionY, int wert, Bitmap bild)
+            : base(bezeichnung, new Point(positionX, positionY), bild)
         {
             this.wert = wert;
         }

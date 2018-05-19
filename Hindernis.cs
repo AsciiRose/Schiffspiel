@@ -10,8 +10,8 @@ namespace grundspiel
     {
         private bool beweglich;
 
-        public Hindernis(string bezeichnung, int positionX, int positionY, bool beweglich)
-            : base(bezeichnung, new Point(positionX, positionY))
+        public Hindernis(string bezeichnung, int positionX, int positionY, bool beweglich, Bitmap bild)
+            : base(bezeichnung, new Point(positionX, positionY), bild)
         {
             this.beweglich = beweglich;
         }

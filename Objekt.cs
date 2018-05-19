@@ -13,10 +13,12 @@ namespace grundspiel
         private Point position;
 
 
-        public Objekt(string bezeichnung, Point position)
+        public Objekt(string bezeichnung, Point position, Bitmap bild)
         {
             this.bezeichnung = bezeichnung;
             this.position = position;
+            this.bild = bild;
+            this.bild.MakeTransparent(Color.White);
         }
 
         public string getBezeichnung()
@@ -47,6 +49,11 @@ namespace grundspiel
         public void moveUp()
         {
             position.Y--;
+        }
+
+        public Bitmap getBild()
+        {
+            return bild;
         }
     }
 }

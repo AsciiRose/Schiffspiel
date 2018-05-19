@@ -24,9 +24,9 @@ namespace grundspiel
             feldObjekte = new List<Objekt>();
 
             rand = new Random();
-            spieler1 = new Spieler("Spieler1", generateRandomPositionOnField());
+            spieler1 = new Spieler("Spieler1", generateRandomPositionOnField(), Resource1.player1);
             feldObjekte.Add(spieler1);
-            spieler2 = new Spieler("Spieler2", generateRandomPositionOnField());
+            spieler2 = new Spieler("Spieler2", generateRandomPositionOnField(), Resource1.player2);
             feldObjekte.Add(spieler2);
 
             spielerAktiv = null;
@@ -134,18 +134,6 @@ namespace grundspiel
             }
         }
 
-        // TODO: keine Objekte zurückgeben, muss überarbeitet werden
-        public Spieler getSpieler1()
-        {
-            return spieler1;
-        }
-
-        // TODO: keine Objekte zurückgeben, muss überarbeitet werden
-        public Spieler getSpieler2()
-        {
-            return spieler2;
-        }
-
         private Point generateRandomPositionOnField()
         {
             int x, y;
@@ -190,6 +178,11 @@ namespace grundspiel
                 darfWuerfeln = false;
             else
                 darfWuerfeln = true;
+        }
+
+        public List<Objekt> getFeldObjekte()
+        {
+            return feldObjekte;
         }
     }
 }

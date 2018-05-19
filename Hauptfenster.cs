@@ -155,26 +155,32 @@ namespace grundspiel
             lblSpieler.Text = spiel.getSpielerAktivName();
         }
 
-        // zu ueberarbeiten
         private void renderFeld()
         {
+            int zellGroeße = 80;
+            int randSpielfeld = 10;
+
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
-            Graphics g = Graphics.FromImage(newImg);
-            SolidBrush red = new SolidBrush(Color.Red);
-            SolidBrush blue = new SolidBrush(Color.Blue);            
+            Graphics g = Graphics.FromImage(newImg);          
             Pen pen = new Pen(Color.Black, 2);
 
             for (int i = 0; i < spiel.getBreite(); i++)
             {
                 for (int j = 0; j < spiel.getHoehe(); j++)
-                    g.DrawRectangle(pen, 10 + 80 * i, 10 + 80 * j, 80, 80);
-            }   
+                    g.DrawRectangle(pen, randSpielfeld + zellGroeße * i, randSpielfeld + zellGroeße * j, zellGroeße, zellGroeße);
+            }
 
-            if (spiel != null)
+            Bitmap objektBild;
+
+            foreach (Objekt objekt in spiel.getFeldObjekte())
             {
-                g.FillEllipse(red, 10 + 80 * spiel.getSpieler1().getPosition().X, 10 + 80 * spiel.getSpieler1().getPosition().Y, 80, 80);
-                g.FillEllipse(blue, 10 + 80 * spiel.getSpieler2().getPosition().X, 10 + 80 * spiel.getSpieler2().getPosition().Y, 80, 80);
+                objektBild = objekt.getBild();
+
+                g.DrawImage(
+                    objektBild,
+                    randSpielfeld + zellGroeße * objekt.getPosition().X + (zellGroeße - objektBild.Width)/2,
+                    randSpielfeld + zellGroeße * objekt.getPosition().Y + (zellGroeße - objektBild.Height)/2);
             }
 
             pictureBox1.Image = newImg;

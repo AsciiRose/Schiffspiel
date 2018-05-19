@@ -10,8 +10,8 @@ namespace grundspiel
     {
         private List<Item> inventar;
 
-        public Spieler(string name, Point position)
-            : base(name, position)
+        public Spieler(string name, Point position, Bitmap bild)
+            : base(name, position, bild)
         {
             inventar = new List<Item>();
         }
