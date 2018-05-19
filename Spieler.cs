@@ -8,14 +8,14 @@ namespace grundspiel
 {
     class Spieler : Objekt
     {
-        private List<Objekt> inventar;
+        private List<Item> inventar;
         private int schritte;
 
         public Spieler(string name, Point position)
             : base(name, position)
         {
             schritte = 0;
-            inventar = new List<Objekt>();
+            inventar = new List<Item>();
         }
 
         public int getSchritte()

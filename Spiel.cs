@@ -13,15 +13,19 @@ namespace grundspiel
         private Spieler spielerAktiv;
         private int breiteFeld;
         private int hoeheFeld;
+        List<Objekt> objekte;
 
         public Spiel(int breite, int hoehe)
         {
             this.breiteFeld = breite;
             this.hoeheFeld = hoehe;
+            objekte = new List<Objekt>();
 
             rand = new Random();
             spieler1 = new Spieler("Spieler1", generateRandomPositionOnField());
+            objekte.Add(spieler1);
             spieler2 = new Spieler("Spieler2", generateRandomPositionOnField());
+            objekte.Add(spieler2);
 
             spielerAktiv = spieler1;
         }
@@ -39,17 +43,21 @@ namespace grundspiel
         public bool canMoveTo(int x, int y)
         {
             if (x >= 0 && y >= 0 && x < breiteFeld && y < hoeheFeld)
-                if (!objectInField(x, y))
+                if (!feldBegehbar(x, y))
                     return true;
 
             return false;
         }
 
-        // muss implementiert werden
-        public bool objectInField(int x, int y)
+        public bool feldBegehbar(int x, int y)
         {
-            
-              return false;
+            Point feld = new Point(x, y);
+
+            foreach (Objekt objekt in objekte)
+                if (objekt.getPosition() == feld)
+                    return true;
+
+            return false;
         }
 
         public void wuerfeln()
@@ -137,7 +145,7 @@ namespace grundspiel
             {
                 x = rand.Next(0, breiteFeld);
                 y = rand.Next(0, hoeheFeld);
-            } while (objectInField(x, y));
+            } while (feldBegehbar(x, y));
 
             return new Point(x, y);
         }

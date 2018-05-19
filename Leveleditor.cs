@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace grundspiel
 {
-    public partial class Form2 : Form
+    public partial class Leveleditor : Form
     {
-        private Form1 f1;
+        private Hauptfenster f1;
         int[] groesse;
         List<Hindernis> hindernisse = new List<Hindernis>();
         
-        public Form2(Form1 aufrufer)
+        public Leveleditor(Hauptfenster aufrufer)
         {
             f1 = aufrufer;
 
@@ -87,7 +87,7 @@ namespace grundspiel
             renderFeldEditor(10, 15);
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Leveleditor_Load(object sender, EventArgs e)
         {
 
         }

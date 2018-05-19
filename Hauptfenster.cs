@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace grundspiel
 {
-    public partial class Form1 : Form
+    public partial class Hauptfenster : Form
     {
         private Spiel spiel;
 
-        public Form1()
+        public Hauptfenster()
         {
             InitializeComponent();
             spiel = null;
@@ -135,7 +135,7 @@ namespace grundspiel
             pictureBox1.Image = newImg;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Hauptfenster_KeyDown(object sender, KeyEventArgs e)
         {
             if (spiel != null)
             {
@@ -157,7 +157,7 @@ namespace grundspiel
 
         private void startEditor()
         {
-            Form2 editor = new Form2(this);
+            Leveleditor editor = new Leveleditor(this);
             editor.ShowDialog();
         }
 
@@ -176,7 +176,7 @@ namespace grundspiel
             this.Close();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Hauptfenster_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (spiel != null)
             {
