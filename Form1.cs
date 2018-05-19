@@ -157,7 +157,7 @@ namespace grundspiel
         {
             if (spiel != null)
             {
-                DialogResult resultBeenden = MessageBox.Show("Willst du das Spiel wirklich beenden?", "Beenden", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultBeenden = MessageBox.Show("Willst du das Spiel wirklich beenden?", "Beenden", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (resultBeenden != DialogResult.Yes)
                     e.Cancel = true;
             }
