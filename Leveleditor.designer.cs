@@ -1,6 +1,6 @@
 ﻿namespace grundspiel
 {
-    partial class Form2
+    partial class Leveleditor
     {
         /// <summary>
         /// Erforderliche Designervariable.
