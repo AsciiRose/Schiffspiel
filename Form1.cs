@@ -101,5 +101,11 @@ namespace grundspiel
 
             pictureBox1.Image = newImg;
         }
+
+        private void btnEditor_Click(object sender, EventArgs e)
+        {
+            Form2 editor = new Form2(this);
+            editor.ShowDialog();
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSwitchPlayer = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnEditor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,11 +158,22 @@
             this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
+            // btnEditor
+            // 
+            this.btnEditor.Location = new System.Drawing.Point(64, 474);
+            this.btnEditor.Name = "btnEditor";
+            this.btnEditor.Size = new System.Drawing.Size(75, 23);
+            this.btnEditor.TabIndex = 13;
+            this.btnEditor.Text = "Editor";
+            this.btnEditor.UseVisualStyleBackColor = true;
+            this.btnEditor.Click += new System.EventHandler(this.btnEditor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 573);
+            this.Controls.Add(this.btnEditor);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnSwitchPlayer);
             this.Controls.Add(this.label2);
@@ -196,6 +208,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSwitchPlayer;
         private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnEditor;
     }
 }
 

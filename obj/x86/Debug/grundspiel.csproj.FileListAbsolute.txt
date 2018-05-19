@@ -12,3 +12,13 @@ E:\Permanent\Schiffspiel\Schiffspiel-master\bin\Debug\dummy.pdb
 E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.Form1.resources
 E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.Properties.Resources.resources
 E:\Permanent\Schiffspiel\Schiffspiel-master\obj\x86\Debug\grundspiel.csproj.GenerateResource.Cache
+C:\Users\Julian\Documents\GitHub\Schiffspiel\bin\Debug\dummy.exe
+C:\Users\Julian\Documents\GitHub\Schiffspiel\bin\Debug\dummy.pdb
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.Form1.resources
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.Properties.Resources.resources
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.csproj.GenerateResource.Cache
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\dummy.exe
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\dummy.pdb
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.Form2.resources
+C:\Users\Julian\Documents\GitHub\Schiffspiel\obj\x86\Debug\grundspiel.Resource1.resources
