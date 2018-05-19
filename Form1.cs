@@ -34,6 +34,17 @@ namespace grundspiel
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             setupNewGame();
+            enableButtons();
+        }
+
+        private void enableButtons()
+        {
+            btnDown.Enabled = true;
+            btnUp.Enabled = true;
+            btnLeft.Enabled = true;
+            btnRight.Enabled = true;
+            btnWuerfeln.Enabled = true;
+            btnSwitchPlayer.Enabled = true;
         }
 
         private void setupNewGame()
@@ -100,6 +111,18 @@ namespace grundspiel
             }
 
             pictureBox1.Image = newImg;
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+                spiel.spielerHochlaufen();
+            if (e.KeyCode == Keys.Down)
+                spiel.spielerRunterlaufen();
+            if (e.KeyCode == Keys.Left)
+                spiel.spielerLinkslaufen();
+            if (e.KeyCode == Keys.Right)
+                spiel.spielerRechtslaufen();
         }
     }
 }

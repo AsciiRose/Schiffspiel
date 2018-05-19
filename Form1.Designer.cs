@@ -62,6 +62,7 @@
             // 
             // btnWuerfeln
             // 
+            this.btnWuerfeln.Enabled = false;
             this.btnWuerfeln.Location = new System.Drawing.Point(757, 480);
             this.btnWuerfeln.Name = "btnWuerfeln";
             this.btnWuerfeln.Size = new System.Drawing.Size(75, 23);
@@ -81,6 +82,7 @@
             // 
             // btnUp
             // 
+            this.btnUp.Enabled = false;
             this.btnUp.Location = new System.Drawing.Point(516, 461);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(37, 23);
@@ -91,6 +93,7 @@
             // 
             // btnRight
             // 
+            this.btnRight.Enabled = false;
             this.btnRight.Location = new System.Drawing.Point(559, 485);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(37, 23);
@@ -101,6 +104,7 @@
             // 
             // btnDown
             // 
+            this.btnDown.Enabled = false;
             this.btnDown.Location = new System.Drawing.Point(516, 508);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(37, 23);
@@ -111,6 +115,7 @@
             // 
             // btnLeft
             // 
+            this.btnLeft.Enabled = false;
             this.btnLeft.Location = new System.Drawing.Point(473, 485);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(37, 23);
@@ -139,6 +144,7 @@
             // 
             // btnSwitchPlayer
             // 
+            this.btnSwitchPlayer.Enabled = false;
             this.btnSwitchPlayer.Location = new System.Drawing.Point(757, 441);
             this.btnSwitchPlayer.Name = "btnSwitchPlayer";
             this.btnSwitchPlayer.Size = new System.Drawing.Size(75, 23);
@@ -161,6 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(847, 573);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnSwitchPlayer);
@@ -174,8 +181,15 @@
             this.Controls.Add(this.btnWuerfeln);
             this.Controls.Add(this.lblWuerfel);
             this.Controls.Add(this.pictureBox1);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(863, 612);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(863, 612);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "Spiel";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
