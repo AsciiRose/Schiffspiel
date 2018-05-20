@@ -24,13 +24,8 @@ namespace grundspiel
             feldObjekte = new List<Objekt>();
 
             rand = new Random();
-            spieler1 = new Spieler("Spieler1", generateRandomPositionOnField(), Resource1.player1);
-            feldObjekte.Add(spieler1);
-            spieler2 = new Spieler("Spieler2", generateRandomPositionOnField(), Resource1.player2);
-            feldObjekte.Add(spieler2);
 
             spielerAktiv = null;
-            startNewRound();
         }
 
         public void startNewRound()
@@ -49,30 +44,10 @@ namespace grundspiel
         {
             return hoeheFeld;
         }
-
-        public bool canMoveTo(int x, int y)
-        {
-            if (x >= 0 && y >= 0 && x < breiteFeld && y < hoeheFeld)
-                if (!feldBegehbar(x, y))
-                    return true;
-
-            return false;
-        }
-
-        public bool feldBegehbar(int x, int y)
-        {
-            Point feld = new Point(x, y);
-
-            foreach (Objekt objekt in feldObjekte)
-                if (objekt.getPosition() == feld)
-                    return true;
-
-            return false;
-        }
-
+        
         public void wuerfeln()
         {
-            setSchritte(rand.Next(1, 7));
+            schritte = rand.Next(1, 7);
             darfWuerfeln = false;
         }
 
@@ -81,9 +56,125 @@ namespace grundspiel
             return spielerAktiv.getBezeichnung();
         }
 
+        public void spielerHochlaufen()
+        {
+            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y - 1))
+            {  
+                spielerAktiv.moveUp();
+                schritte--;
+            }
+        }
+
+        public void spielerRunterlaufen()
+        {
+            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y + 1))
+            {
+                spielerAktiv.moveDown();
+                schritte--;
+            }
+        }
+
+        public void spielerLinkslaufen()
+        {
+            if (canMoveTo(spielerAktiv.getPosition().X - 1, spielerAktiv.getPosition().Y))
+            {
+                spielerAktiv.moveLeft();
+                schritte--;
+            }
+        }
+
+        public void spielerRechtslaufen()
+        {
+            if (canMoveTo(spielerAktiv.getPosition().X + 1, spielerAktiv.getPosition().Y))
+            {
+                spielerAktiv.moveRight();
+                schritte--;
+            }
+        }
+
+        public Point getZufallFreiesFeld()
+        {
+            Point position = new Point();
+
+            do
+            {
+                position.X = rand.Next(0, breiteFeld);
+                position.Y = rand.Next(0, hoeheFeld);
+            } while (isFeldBelegt(position));
+
+            return position;
+        }
+
+        public int getSchritte()
+        {
+            return schritte;
+        }
+        
+        public bool getDarfWueferln()
+        {
+            return darfWuerfeln;
+        }
+
+        public List<Objekt> getFeldObjekte()
+        {
+            return feldObjekte;
+        }
+
+        public void addFeldObjekt(Objekt objekt)
+        {
+            if(!isFeldBelegt(objekt.getPosition()))
+                this.feldObjekte.Add(objekt);
+        }
+
+        public void addSpieler(Spieler spieler)
+        {
+            if (spieler1 == null)
+            {
+                spieler1 = spieler;
+                addFeldObjekt(spieler1);
+            }
+            else if (spieler2 == null)
+            {
+                spieler2 = spieler;
+                addFeldObjekt(spieler2);
+            }
+        }
+
+        private bool canMoveTo(int x, int y)
+        {
+            if (!isPosInFeld(x, y))
+                return false;
+
+            if (isFeldBelegt(new Point(x, y)))
+                return false;
+            
+            return true;
+        }
+
+        private bool isPosInFeld(int x, int y)
+        {
+            if (x < 0 || y < 0)
+                return false;
+            if (x >= breiteFeld)
+                return false;
+            if (y >= hoeheFeld)
+                return false;
+
+            return true;
+        }
+
+        private bool isFeldBelegt(Point feld)
+        {
+            foreach (Objekt objekt in feldObjekte)
+                if (objekt.getPosition() == feld)
+                    return true;
+
+            return false;
+        }
+
         private void spielerAktivWechseln()
         {
-            if(spielerAktiv == null)
+            if (spielerAktiv == null)
             {
                 if (rand.Next(1, 3) == 1)
                     spielerAktiv = spieler1;
@@ -94,95 +185,6 @@ namespace grundspiel
                 spielerAktiv = spieler2;
             else
                 spielerAktiv = spieler1;
-
-            resetSchritte();
-        }
-
-        public void spielerHochlaufen()
-        {
-            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y - 1))
-            {  
-                spielerAktiv.moveUp();
-                schrittRunterzaehlen();
-            }
-        }
-
-        public void spielerRunterlaufen()
-        {
-            if (canMoveTo(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y + 1))
-            {
-                spielerAktiv.moveDown();
-                schrittRunterzaehlen();
-            }
-        }
-
-        public void spielerLinkslaufen()
-        {
-            if (canMoveTo(spielerAktiv.getPosition().X - 1, spielerAktiv.getPosition().Y))
-            {
-                spielerAktiv.moveLeft(); 
-                schrittRunterzaehlen();
-            }
-        }
-
-        public void spielerRechtslaufen()
-        {
-            if (canMoveTo(spielerAktiv.getPosition().X + 1, spielerAktiv.getPosition().Y))
-            {
-                spielerAktiv.moveRight();
-                schrittRunterzaehlen();
-            }
-        }
-
-        private Point generateRandomPositionOnField()
-        {
-            int x, y;
-
-            do
-            {
-                x = rand.Next(0, breiteFeld);
-                y = rand.Next(0, hoeheFeld);
-            } while (feldBegehbar(x, y));
-
-            return new Point(x, y);
-        }
-
-        public int getSchritte()
-        {
-            return schritte;
-        }
-
-        public void resetSchritte()
-        {
-            schritte = 0;
-        }
-
-        public void schrittRunterzaehlen()
-        {
-            schritte--;
-        }
-
-        public void setSchritte(int schritte)
-        {
-            this.schritte = schritte;
-        }
-
-        public bool getDarfWueferln()
-        {
-            return darfWuerfeln;
-        }
-
-        public void setDarfWuerfeln()
-        {
-            if (darfWuerfeln)
-                darfWuerfeln = false;
-            else
-                darfWuerfeln = true;
-        }
-
-        public List<Objekt> getFeldObjekte()
-        {
-            return feldObjekte;
         }
     }
 }
