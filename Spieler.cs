@@ -15,6 +15,10 @@ namespace grundspiel
         {
             inventar = new List<Item>();
         }
-        
+
+        public void addItem(Item item)
+        {
+            inventar.Add(item);
+        }
     }
 }

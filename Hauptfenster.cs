@@ -36,10 +36,10 @@ namespace grundspiel
             spiel = new Spiel(10, 5);
 
             // Beispiel: Hindernis
-            spiel.addFeldHindernis(new Hindernis("Mast", 4, 2, true, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, true, 1, Resource1.hindernis));
 
             // Beispiel: Item
-            spiel.addFeldItem(new Item("Paddel", 6, 3, 10, Resource1.item));            
+            spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));            
 
             // Beispiel: Spieler
             spiel.addSpieler(new Spieler("Spieler1", spiel.getZufallFreiesFeld(), Resource1.player1));
@@ -98,50 +98,9 @@ namespace grundspiel
             spielerHochlaufen();
         }
 
-        private void spielerHochlaufen()
-        {
-            if (spiel.getSchritte() > 0)
-            {
-                spiel.spielerHochlaufen();
-                renderFeld();
-                updateLabels();
-            }
-            else
-                btnSwitchPlayer.Select();
-        }
-
-        private void btnRight_Click(object sender, EventArgs e)
-        {
-            spielerRechtslaufen();
-        }
-
-        private void spielerRechtslaufen()
-        {
-            if (spiel.getSchritte() > 0)
-            {
-                spiel.spielerRechtslaufen();
-                renderFeld();
-                updateLabels();
-            }
-            else
-                btnSwitchPlayer.Select();
-        }
-
         private void btnDown_Click(object sender, EventArgs e)
         {
             spielerRunterlaufen();
-        }
-
-        private void spielerRunterlaufen()
-        {
-            if (spiel.getSchritte() > 0)
-            {
-                spiel.spielerRunterlaufen();
-                renderFeld();
-                updateLabels();
-            }
-            else
-                btnSwitchPlayer.Select();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -149,11 +108,55 @@ namespace grundspiel
             spielerLinkslaufen();
         }
 
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            spielerRechtslaufen();
+        }
+
+        private void Hauptfenster_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (spiel != null)
+            {
+                if (e.KeyCode == Keys.W)
+                    spielerHochlaufen();
+                if (e.KeyCode == Keys.S)
+                    spielerRunterlaufen();
+                if (e.KeyCode == Keys.A)
+                    spielerLinkslaufen();
+                if (e.KeyCode == Keys.D)
+                    spielerRechtslaufen();
+            }
+        }
+
+        private void spielerHochlaufen()
+        {
+            Point richtungsVektor = new Point(0, -1);
+            spielerLaufen(richtungsVektor);
+        }
+
+        private void spielerRunterlaufen()
+        {
+            Point richtungsVektor = new Point(0, 1);
+            spielerLaufen(richtungsVektor);
+        }
+
         private void spielerLinkslaufen()
+        {
+            Point richtungsVektor = new Point(-1, 0);
+            spielerLaufen(richtungsVektor);
+        }
+
+        private void spielerRechtslaufen()
+        {
+            Point richtungsVektor = new Point(1, 0);
+            spielerLaufen(richtungsVektor);
+        }
+
+        private void spielerLaufen(Point richtungsVektor)
         {
             if (spiel.getSchritte() > 0)
             {
-                spiel.spielerLinkslaufen();
+                spiel.spielerLaufen(richtungsVektor);
                 renderFeld();
                 updateLabels();
             }
@@ -196,21 +199,6 @@ namespace grundspiel
             }
 
             pictureBox1.Image = newImg;
-        }
-
-        private void Hauptfenster_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (spiel != null)
-            {
-                if (e.KeyCode == Keys.W)
-                    spielerHochlaufen();
-                if (e.KeyCode == Keys.S)
-                    spielerRunterlaufen();
-                if (e.KeyCode == Keys.A)
-                    spielerLinkslaufen();
-                if (e.KeyCode == Keys.D)
-                    spielerRechtslaufen();
-            }
         }
 
         private void btnEditor_Click(object sender, EventArgs e)

@@ -16,16 +16,12 @@ namespace grundspiel
         private int schritte;
         private bool darfWuerfeln;
         private List<Objekt> feldObjekte;
-        private List<Hindernis> feldHindernisse;
-        private List<Item> feldItems;
 
         public Spiel(int breite, int hoehe)
         {
             this.breiteFeld = breite;
             this.hoeheFeld = hoehe;
             feldObjekte = new List<Objekt>();
-            feldHindernisse = new List<Hindernis>();
-            feldItems = new List<Item>();
 
             rand = new Random();
 
@@ -60,54 +56,47 @@ namespace grundspiel
             return spielerAktiv.getBezeichnung();
         }
 
-        public void spielerHochlaufen()
+        public void spielerLaufen(Point richtungsVektor)
         {
-            Point naechstePosition = new Point(
-                spielerAktiv.getPosition().X,
-                spielerAktiv.getPosition().Y - 1);
+            Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);
+            position.Offset(richtungsVektor);
+            
+            if (isFeldBelegt(position))
+            {
+                Objekt objekt = getObjektAufFeld(position);
 
-            if (canMoveTo(naechstePosition))
+                if (objekt.GetType() == typeof(Item))
+                {
+                    Item item = (Item)objekt;
+                    spielerAktiv.addItem(item);
+                    feldObjekte.Remove(getObjektAufFeld(position));
+                }
+
+                if (objekt.GetType() == typeof(Hindernis))
+                {
+                    Hindernis hindernis = (Hindernis)objekt;
+
+                    if (hindernis.isBeweglich())
+                    {
+                        Point hindernisPosition = new Point(hindernis.getPosition().X, hindernis.getPosition().Y);
+                        hindernisPosition.Offset(richtungsVektor);
+
+                        if (schritte - hindernis.getGewicht() > 0)
+                        {
+                            if (canMoveTo(hindernisPosition))
+                            {
+                                hindernis.move(richtungsVektor);
+                                schritte -= hindernis.getGewicht();
+                            }
+                        }
+                    }
+                }
+                    
+            }
+
+            if (canMoveTo(position))
             {  
-                spielerAktiv.moveUp();
-                schritte--;
-            }
-        }
-
-        public void spielerRunterlaufen()
-        {
-            Point naechstePosition = new Point(
-                spielerAktiv.getPosition().X, 
-                spielerAktiv.getPosition().Y + 1);
-
-            if (canMoveTo(naechstePosition))
-            {
-                spielerAktiv.moveDown();
-                schritte--;
-            }
-        }
-
-        public void spielerLinkslaufen()
-        {
-            Point naechstePosition = new Point(
-                spielerAktiv.getPosition().X - 1,
-                spielerAktiv.getPosition().Y);
-
-            if (canMoveTo(naechstePosition))
-            {
-                spielerAktiv.moveLeft();
-                schritte--;
-            }
-        }
-
-        public void spielerRechtslaufen()
-        {
-            Point naechstePosition = new Point(
-                spielerAktiv.getPosition().X + 1,
-                spielerAktiv.getPosition().Y);
-
-            if (canMoveTo(naechstePosition))
-            {
-                spielerAktiv.moveRight();
+                spielerAktiv.move(richtungsVektor);
                 schritte--;
             }
         }
@@ -140,23 +129,6 @@ namespace grundspiel
             return feldObjekte;
         }
 
-        public void addFeldHindernis(Hindernis hindernis)
-        {
-            if (!isFeldBelegt(hindernis.getPosition()))
-            {
-                this.feldObjekte.Add(hindernis);
-                this.feldHindernisse.Add(hindernis);
-            }
-        }
-        public void addFeldItem(Item item)
-        {
-            if (!isFeldBelegt(item.getPosition()))
-            {
-                this.feldObjekte.Add(item);
-                this.feldItems.Add(item);
-            }
-        }
-
         public void addSpieler(Spieler spieler)
         {
             if (!isFeldBelegt(spieler.getPosition()))
@@ -174,7 +146,7 @@ namespace grundspiel
             }
         }
         
-        private void addFeldObjekt(Objekt objekt)
+        public void addFeldObjekt(Objekt objekt)
         {
             if (!isFeldBelegt(objekt.getPosition()))
                 this.feldObjekte.Add(objekt);

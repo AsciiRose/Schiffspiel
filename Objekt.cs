@@ -31,24 +31,9 @@ namespace grundspiel
             return this.position;
         }
 
-        public void moveRight()
+        public void move(Point offset)
         {
-            position.X++;
-        }
-
-        public void moveDown()
-        {
-            position.Y++;
-        }
-
-        public void moveLeft()
-        {
-            position.X--;
-        }
-
-        public void moveUp()
-        {
-            position.Y--;
+            position.Offset(offset);
         }
 
         public Bitmap getBild()

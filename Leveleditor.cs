@@ -121,7 +121,7 @@ namespace grundspiel
                 beweglich = false;
             }
 
-            editor_hindernis = new Hindernis(bezeichnung, posFeld[1], posFeld[0], beweglich, Resource1.hindernis);
+            editor_hindernis = new Hindernis(bezeichnung, posFeld[1], posFeld[0], beweglich, 1, Resource1.hindernis);
 
             return editor_hindernis;
         }
