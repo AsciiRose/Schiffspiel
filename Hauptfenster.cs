@@ -36,10 +36,10 @@ namespace grundspiel
             spiel = new Spiel(10, 5);
 
             // Beispiel: Hindernis
-            spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, false, Resource1.hindernis));
+            spiel.addFeldHindernis(new Hindernis("Mast", 4, 2, true, Resource1.hindernis));
 
             // Beispiel: Item
-            spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));            
+            spiel.addFeldItem(new Item("Paddel", 6, 3, 10, Resource1.item));            
 
             // Beispiel: Spieler
             spiel.addSpieler(new Spieler("Spieler1", spiel.getZufallFreiesFeld(), Resource1.player1));
