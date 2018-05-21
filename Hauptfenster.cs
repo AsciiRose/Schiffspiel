@@ -50,11 +50,14 @@ namespace grundspiel
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), spiel.getZufallFreiesFeld(), Resource1.player1));
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), spiel.getZufallFreiesFeld(), Resource1.player2));
 
+            printToConsole("Neues Spiel gestartet");
+            printToConsole("'" + neuesSpielForm.getNameSpieler1() + "' und '" + neuesSpielForm.getNameSpieler2() + "' spielen");
+
             spiel.startNewRound();
             updateLabels();
             enableButtons();
             setNewRoundButtons();
-            renderFeld();
+            zeichneFeld();
         }
 
         private void setNewRoundButtons()
@@ -64,6 +67,8 @@ namespace grundspiel
                 btnWuerfeln.Enabled = true;
                 btnWuerfeln.Select();
                 btnSwitchPlayer.Enabled = false;
+                printToConsole(spiel.getSpielerAktivName() + " ist an der Reihe");
+                printToConsole("Bitte würfeln");
             }
             else
             {
@@ -77,6 +82,7 @@ namespace grundspiel
             spiel.wuerfeln();
             updateLabels();
             setNewRoundButtons();
+            printToConsole("Du hast eine " + spiel.getSchritte() + " gewürfelt");
         }
 
         private void btnSwitchPlayer_Click(object sender, EventArgs e)
@@ -162,11 +168,14 @@ namespace grundspiel
             if (spiel.getSchritte() > 0)
             {
                 spiel.spielerLaufen(richtungsVektor);
-                renderFeld();
+                zeichneFeld();
                 updateLabels();
             }
-            else
+            else if(!spiel.getDarfWueferln())
+            {
                 btnSwitchPlayer.Select();
+                printToConsole(spiel.getSpielerAktivName()+" hat keine Schritte mehr, bitte an den nächsten Spieler übergeben.");
+            }
         }
 
         private void updateLabels()
@@ -175,7 +184,7 @@ namespace grundspiel
             lblSpieler.Text = spiel.getSpielerAktivName();
         }
 
-        private void renderFeld()
+        private void zeichneFeld()
         {
             int zellGroeße = 80;
             int randSpielfeld = 10;
@@ -240,6 +249,13 @@ namespace grundspiel
                 if (resultBeenden != DialogResult.Yes)
                     e.Cancel = true;
             }
+        }
+
+        private void printToConsole(String message)
+        {
+            string output = "[" + DateTime.Now.ToLongTimeString() + "] " + message + "\n";
+            tbConsole.AppendText(output);
+            Console.Write(message);
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWuerfel = new System.Windows.Forms.Label();
             this.btnWuerfeln = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,22 +47,16 @@
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tbConsole = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(820, 420);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // lblWuerfel
             // 
             this.lblWuerfel.AutoSize = true;
-            this.lblWuerfel.Location = new System.Drawing.Point(686, 536);
+            this.lblWuerfel.Location = new System.Drawing.Point(686, 629);
             this.lblWuerfel.Name = "lblWuerfel";
             this.lblWuerfel.Size = new System.Drawing.Size(13, 13);
             this.lblWuerfel.TabIndex = 1;
@@ -72,7 +65,7 @@
             // btnWuerfeln
             // 
             this.btnWuerfeln.Enabled = false;
-            this.btnWuerfeln.Location = new System.Drawing.Point(757, 531);
+            this.btnWuerfeln.Location = new System.Drawing.Point(757, 624);
             this.btnWuerfeln.Name = "btnWuerfeln";
             this.btnWuerfeln.Size = new System.Drawing.Size(75, 23);
             this.btnWuerfeln.TabIndex = 2;
@@ -83,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(638, 536);
+            this.label1.Location = new System.Drawing.Point(638, 629);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 3;
@@ -92,7 +85,7 @@
             // btnUp
             // 
             this.btnUp.Enabled = false;
-            this.btnUp.Location = new System.Drawing.Point(516, 491);
+            this.btnUp.Location = new System.Drawing.Point(516, 584);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(37, 23);
             this.btnUp.TabIndex = 4;
@@ -103,7 +96,7 @@
             // btnRight
             // 
             this.btnRight.Enabled = false;
-            this.btnRight.Location = new System.Drawing.Point(559, 515);
+            this.btnRight.Location = new System.Drawing.Point(559, 608);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(37, 23);
             this.btnRight.TabIndex = 5;
@@ -114,7 +107,7 @@
             // btnDown
             // 
             this.btnDown.Enabled = false;
-            this.btnDown.Location = new System.Drawing.Point(516, 538);
+            this.btnDown.Location = new System.Drawing.Point(516, 631);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(37, 23);
             this.btnDown.TabIndex = 6;
@@ -125,7 +118,7 @@
             // btnLeft
             // 
             this.btnLeft.Enabled = false;
-            this.btnLeft.Location = new System.Drawing.Point(473, 515);
+            this.btnLeft.Location = new System.Drawing.Point(473, 608);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(37, 23);
             this.btnLeft.TabIndex = 7;
@@ -136,7 +129,7 @@
             // lblSpieler
             // 
             this.lblSpieler.AutoSize = true;
-            this.lblSpieler.Location = new System.Drawing.Point(686, 497);
+            this.lblSpieler.Location = new System.Drawing.Point(686, 590);
             this.lblSpieler.Name = "lblSpieler";
             this.lblSpieler.Size = new System.Drawing.Size(48, 13);
             this.lblSpieler.TabIndex = 8;
@@ -145,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(646, 497);
+            this.label2.Location = new System.Drawing.Point(646, 590);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 9;
@@ -154,7 +147,7 @@
             // btnSwitchPlayer
             // 
             this.btnSwitchPlayer.Enabled = false;
-            this.btnSwitchPlayer.Location = new System.Drawing.Point(757, 492);
+            this.btnSwitchPlayer.Location = new System.Drawing.Point(757, 585);
             this.btnSwitchPlayer.Name = "btnSwitchPlayer";
             this.btnSwitchPlayer.Size = new System.Drawing.Size(75, 23);
             this.btnSwitchPlayer.TabIndex = 11;
@@ -164,7 +157,7 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(12, 531);
+            this.btnNewGame.Location = new System.Drawing.Point(12, 624);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 23);
             this.btnNewGame.TabIndex = 12;
@@ -175,7 +168,7 @@
             // btnEditor
             // 
             this.btnEditor.Enabled = false;
-            this.btnEditor.Location = new System.Drawing.Point(12, 497);
+            this.btnEditor.Location = new System.Drawing.Point(12, 590);
             this.btnEditor.Name = "btnEditor";
             this.btnEditor.Size = new System.Drawing.Size(75, 23);
             this.btnEditor.TabIndex = 13;
@@ -190,7 +183,7 @@
             this.extrasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(847, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(845, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,19 +200,19 @@
             // neuesSpielToolStripMenuItem
             // 
             this.neuesSpielToolStripMenuItem.Name = "neuesSpielToolStripMenuItem";
-            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.neuesSpielToolStripMenuItem.Text = "Neues Spiel";
             this.neuesSpielToolStripMenuItem.Click += new System.EventHandler(this.neuesSpielToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(132, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -235,16 +228,37 @@
             // 
             this.editorToolStripMenuItem.Enabled = false;
             this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
-            this.editorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editorToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.editorToolStripMenuItem.Text = "Editor";
             this.editorToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            // 
+            // tbConsole
+            // 
+            this.tbConsole.Font = new System.Drawing.Font("Courier New", 8F);
+            this.tbConsole.Location = new System.Drawing.Point(12, 464);
+            this.tbConsole.Multiline = true;
+            this.tbConsole.Name = "tbConsole";
+            this.tbConsole.ReadOnly = true;
+            this.tbConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbConsole.Size = new System.Drawing.Size(820, 95);
+            this.tbConsole.TabIndex = 15;
+            this.tbConsole.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(820, 420);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(847, 573);
+            this.ClientSize = new System.Drawing.Size(845, 669);
+            this.Controls.Add(this.tbConsole);
             this.Controls.Add(this.btnEditor);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnSwitchPlayer);
@@ -268,9 +282,9 @@
             this.Text = "Spiel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hauptfenster_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Hauptfenster_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,6 +312,7 @@
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
+        private System.Windows.Forms.TextBox tbConsole;
     }
 }
 
