@@ -31,7 +31,7 @@ namespace grundspiel
             return this.position;
         }
 
-        public void move(Point offset)
+        public void verschiebeUm(Point offset)
         {
             position.Offset(offset);
         }

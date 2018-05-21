@@ -60,7 +60,10 @@ namespace grundspiel
         {
             Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);
             position.Offset(richtungsVektor);
-            
+
+            if (!isPosInFeld(position))
+                return;
+
             if (isFeldBelegt(position))
             {
                 Objekt objekt = getObjektAufFeld(position);
@@ -68,8 +71,8 @@ namespace grundspiel
                 if (objekt.GetType() == typeof(Item))
                 {
                     Item item = (Item)objekt;
-                    spielerAktiv.addItem(item);
-                    feldObjekte.Remove(getObjektAufFeld(position));
+
+                    sammleItem(richtungsVektor, item);
                 }
 
                 if (objekt.GetType() == typeof(Hindernis))
@@ -77,28 +80,53 @@ namespace grundspiel
                     Hindernis hindernis = (Hindernis)objekt;
 
                     if (hindernis.isBeweglich())
-                    {
-                        Point hindernisPosition = new Point(hindernis.getPosition().X, hindernis.getPosition().Y);
-                        hindernisPosition.Offset(richtungsVektor);
-
-                        if (schritte - hindernis.getGewicht() > 0)
-                        {
-                            if (canMoveTo(hindernisPosition))
-                            {
-                                hindernis.move(richtungsVektor);
-                                schritte -= hindernis.getGewicht();
-                            }
-                        }
-                    }
+                        hindernisVerschieben(richtungsVektor, hindernis);
                 }
-                    
-            }
 
-            if (canMoveTo(position))
-            {  
-                spielerAktiv.move(richtungsVektor);
-                schritte--;
+                if (objekt.GetType() == typeof(Spieler))
+                {
+                    starteDuell();
+                }
             }
+            else
+                bewegeSpielerAktiv(richtungsVektor);
+        }
+
+        private void hindernisVerschieben(Point richtungsVektor, Hindernis hindernis)
+        {
+            Point hindernisPosition = new Point(hindernis.getPosition().X, hindernis.getPosition().Y);
+            hindernisPosition.Offset(richtungsVektor);
+
+            if (schritte - hindernis.getGewicht() > 0)
+            {
+                if (canMoveTo(hindernisPosition))
+                {
+                    hindernis.verschiebeUm(richtungsVektor);
+                    schritte -= hindernis.getGewicht();
+
+                    bewegeSpielerAktiv(richtungsVektor);
+                }
+            }
+        }
+
+        private void sammleItem(Point richtungsVektor, Item item)
+        {
+            spielerAktiv.addItem(item);
+            feldObjekte.Remove(item);
+
+            bewegeSpielerAktiv(richtungsVektor);
+        }
+
+        private void bewegeSpielerAktiv(Point richtungsVektor)
+        {
+            spielerAktiv.verschiebeUm(richtungsVektor);
+            schritte--;
+        }
+
+        private void starteDuell()
+        {
+            // TODO: Duell zwischen Spielern um Ruhm und Ehre. (Und um Items)
+            throw new NotImplementedException();
         }
 
         public Point getZufallFreiesFeld()
