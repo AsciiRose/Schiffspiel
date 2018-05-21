@@ -15,5 +15,10 @@ namespace grundspiel
         {
             this.wert = wert;
         }
+
+        public int getWert()
+        {
+            return wert;
+        }
     }
 }

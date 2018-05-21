@@ -60,6 +60,9 @@ namespace grundspiel
             printToConsole("Neues Spiel gestartet");
             printToConsole("'" + neuesSpielForm.getNameSpieler1() + "' und '" + neuesSpielForm.getNameSpieler2() + "' spielen");
 
+            gbSpieler1.Text = neuesSpielForm.getNameSpieler1();
+            gbSpieler2.Text = neuesSpielForm.getNameSpieler2();
+
             spiel.startNewRound();
             updateLabels();
             enableButtons();
@@ -189,6 +192,8 @@ namespace grundspiel
         {
             lblWuerfel.Text = spiel.getSchritte().ToString();
             lblSpieler.Text = spiel.getSpielerAktivName();
+            lblPunkteSpieler1.Text = spiel.getSpieler1Punkte().ToString();
+            lblPunkteSpieler2.Text = spiel.getSpieler2Punkte().ToString();
         }
 
         private void zeichneFeld()

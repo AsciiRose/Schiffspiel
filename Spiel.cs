@@ -56,6 +56,16 @@ namespace grundspiel
             return spielerAktiv.getBezeichnung();
         }
 
+        public int getSpieler1Punkte()
+        {
+            return spieler1.getPunkte();
+        }
+
+        public int getSpieler2Punkte()
+        {
+            return spieler2.getPunkte();
+        }
+
         public void spielerLaufen(Point richtungsVektor)
         {
             Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);
@@ -125,17 +135,6 @@ namespace grundspiel
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
                         }
-                        /*
-                        else if (isFeldBelegt(position))
-                        {
-                            if (getObjektAufFeld(position).GetType() == typeof(Spieler))
-                            {
-                                spielerAktiv.addItem((Item)objekt);
-                                feldObjekte.Remove(objekt);
-                                gerutscht = true;
-                            }
-                        }
-                        */
                     }
 
                     if (objekt.GetType() == typeof(Spieler))
@@ -144,23 +143,6 @@ namespace grundspiel
                         {
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
-                        }
-                        else if (isFeldBelegt(position))
-                        {
-                            /*
-                            if (getObjektAufFeld(position).GetType() == typeof(Item))
-                            {
-                                Item item = (Item)getObjektAufFeld(position);
-                                spielerAktiv.addItem(item);
-                                feldObjekte.Remove(item);
-                                gerutscht = true;
-                            }
-                            */
-
-                            if (getObjektAufFeld(position).GetType() == typeof(Spieler))
-                            {
-                                starteDuell();
-                            }
                         }
                     }
                 }
@@ -178,6 +160,7 @@ namespace grundspiel
                 {
                     hindernis.verschiebeUm(richtungsVektor);
                     schritte -= hindernis.getGewicht();
+                    spielerAktiv.addPunkte(hindernis.getGewicht()*2);
 
                     bewegeSpielerAktiv(richtungsVektor);
                 }
@@ -187,6 +170,7 @@ namespace grundspiel
         private void sammleItem(Point richtungsVektor, Item item)
         {
             spielerAktiv.addItem(item);
+            spielerAktiv.addPunkte(item.getWert());
             feldObjekte.Remove(item);
 
             bewegeSpielerAktiv(richtungsVektor);

@@ -39,9 +39,21 @@ namespace grundspiel
                 return;
             }
 
+            if (getNameSpieler1().Length > 14)
+            {
+                MessageBox.Show("Der Eingegebene Name für Spieler 1 ist zu lang. Bitte maximal 14 Zeichen eingeben.");
+                return;
+            }
+
             if (getNameSpieler2().Length < 3)
             {
                 MessageBox.Show("Der Eingegebene Name für Spieler 2 ist zu kurz. Bitte drei oder mehr Zeichen eingeben.");
+                return;
+            }
+
+            if (getNameSpieler2().Length > 14)
+            {
+                MessageBox.Show("Der Eingegebene Name für Spieler 2 ist zu lang. Bitte maximal 14 Zeichen eingeben.");
                 return;
             }
 

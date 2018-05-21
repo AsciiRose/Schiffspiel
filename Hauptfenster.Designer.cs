@@ -30,13 +30,11 @@
         {
             this.lblWuerfel = new System.Windows.Forms.Label();
             this.btnWuerfeln = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.lblSpieler = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnSwitchPlayer = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnEditor = new System.Windows.Forms.Button();
@@ -50,25 +48,32 @@
             this.tbConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBeenden = new System.Windows.Forms.Button();
+            this.gbSpieler1 = new System.Windows.Forms.GroupBox();
+            this.gbSpieler2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPunkteSpieler1 = new System.Windows.Forms.Label();
+            this.lblPunkteSpieler2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbSpieler1.SuspendLayout();
+            this.gbSpieler2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblWuerfel
             // 
-            this.lblWuerfel.AutoSize = true;
-            this.lblWuerfel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblWuerfel.Location = new System.Drawing.Point(410, 602);
+            this.lblWuerfel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblWuerfel.Location = new System.Drawing.Point(593, 652);
             this.lblWuerfel.Name = "lblWuerfel";
-            this.lblWuerfel.Size = new System.Drawing.Size(18, 17);
+            this.lblWuerfel.Size = new System.Drawing.Size(35, 28);
             this.lblWuerfel.TabIndex = 1;
-            this.lblWuerfel.Text = "--";
+            this.lblWuerfel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnWuerfeln
             // 
             this.btnWuerfeln.Enabled = false;
             this.btnWuerfeln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnWuerfeln.Location = new System.Drawing.Point(696, 619);
+            this.btnWuerfeln.Location = new System.Drawing.Point(696, 651);
             this.btnWuerfeln.Name = "btnWuerfeln";
             this.btnWuerfeln.Size = new System.Drawing.Size(136, 62);
             this.btnWuerfeln.TabIndex = 2;
@@ -76,21 +81,12 @@
             this.btnWuerfeln.UseVisualStyleBackColor = true;
             this.btnWuerfeln.Click += new System.EventHandler(this.btnWuerfeln_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(358, 604);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Schritte:";
-            // 
             // btnUp
             // 
             this.btnUp.Enabled = false;
             this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUp.Location = new System.Drawing.Point(571, 585);
+            this.btnUp.Location = new System.Drawing.Point(593, 621);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(35, 28);
             this.btnUp.TabIndex = 4;
@@ -102,7 +98,7 @@
             // 
             this.btnRight.Enabled = false;
             this.btnRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRight.Location = new System.Drawing.Point(612, 620);
+            this.btnRight.Location = new System.Drawing.Point(634, 652);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(35, 28);
             this.btnRight.TabIndex = 5;
@@ -114,7 +110,7 @@
             // 
             this.btnDown.Enabled = false;
             this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Location = new System.Drawing.Point(571, 653);
+            this.btnDown.Location = new System.Drawing.Point(593, 683);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(35, 28);
             this.btnDown.TabIndex = 6;
@@ -126,7 +122,7 @@
             // 
             this.btnLeft.Enabled = false;
             this.btnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeft.Location = new System.Drawing.Point(530, 620);
+            this.btnLeft.Location = new System.Drawing.Point(552, 652);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(35, 28);
             this.btnLeft.TabIndex = 7;
@@ -136,27 +132,18 @@
             // 
             // lblSpieler
             // 
-            this.lblSpieler.AutoSize = true;
-            this.lblSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSpieler.Location = new System.Drawing.Point(410, 585);
+            this.lblSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSpieler.Location = new System.Drawing.Point(594, 590);
             this.lblSpieler.Name = "lblSpieler";
-            this.lblSpieler.Size = new System.Drawing.Size(64, 17);
+            this.lblSpieler.Size = new System.Drawing.Size(239, 24);
             this.lblSpieler.TabIndex = 8;
-            this.lblSpieler.Text = "Spieler 1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(357, 587);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Am Zug:";
+            this.lblSpieler.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnSwitchPlayer
             // 
             this.btnSwitchPlayer.Enabled = false;
-            this.btnSwitchPlayer.Location = new System.Drawing.Point(696, 585);
+            this.btnSwitchPlayer.Location = new System.Drawing.Point(696, 617);
             this.btnSwitchPlayer.Name = "btnSwitchPlayer";
             this.btnSwitchPlayer.Size = new System.Drawing.Size(136, 28);
             this.btnSwitchPlayer.TabIndex = 11;
@@ -166,7 +153,7 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(12, 585);
+            this.btnNewGame.Location = new System.Drawing.Point(12, 590);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 23);
             this.btnNewGame.TabIndex = 12;
@@ -177,7 +164,7 @@
             // btnEditor
             // 
             this.btnEditor.Enabled = false;
-            this.btnEditor.Location = new System.Drawing.Point(12, 614);
+            this.btnEditor.Location = new System.Drawing.Point(12, 619);
             this.btnEditor.Name = "btnEditor";
             this.btnEditor.Size = new System.Drawing.Size(75, 23);
             this.btnEditor.TabIndex = 13;
@@ -264,7 +251,7 @@
             // 
             // btnBeenden
             // 
-            this.btnBeenden.Location = new System.Drawing.Point(12, 658);
+            this.btnBeenden.Location = new System.Drawing.Point(12, 690);
             this.btnBeenden.Name = "btnBeenden";
             this.btnBeenden.Size = new System.Drawing.Size(75, 23);
             this.btnBeenden.TabIndex = 16;
@@ -272,24 +259,84 @@
             this.btnBeenden.UseVisualStyleBackColor = true;
             this.btnBeenden.Click += new System.EventHandler(this.btnBeenden_Click);
             // 
+            // gbSpieler1
+            // 
+            this.gbSpieler1.Controls.Add(this.lblPunkteSpieler1);
+            this.gbSpieler1.Controls.Add(this.label3);
+            this.gbSpieler1.Location = new System.Drawing.Point(151, 590);
+            this.gbSpieler1.Name = "gbSpieler1";
+            this.gbSpieler1.Size = new System.Drawing.Size(150, 123);
+            this.gbSpieler1.TabIndex = 19;
+            this.gbSpieler1.TabStop = false;
+            this.gbSpieler1.Text = "Spieler 1";
+            // 
+            // gbSpieler2
+            // 
+            this.gbSpieler2.Controls.Add(this.lblPunkteSpieler2);
+            this.gbSpieler2.Controls.Add(this.label1);
+            this.gbSpieler2.Location = new System.Drawing.Point(313, 590);
+            this.gbSpieler2.Name = "gbSpieler2";
+            this.gbSpieler2.Size = new System.Drawing.Size(156, 123);
+            this.gbSpieler2.TabIndex = 20;
+            this.gbSpieler2.TabStop = false;
+            this.gbSpieler2.Text = "Spieler 2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Punkte:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Punkte:";
+            // 
+            // lblPunkteSpieler1
+            // 
+            this.lblPunkteSpieler1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunkteSpieler1.Location = new System.Drawing.Point(56, 19);
+            this.lblPunkteSpieler1.Name = "lblPunkteSpieler1";
+            this.lblPunkteSpieler1.Size = new System.Drawing.Size(88, 13);
+            this.lblPunkteSpieler1.TabIndex = 18;
+            this.lblPunkteSpieler1.Text = "-";
+            this.lblPunkteSpieler1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblPunkteSpieler2
+            // 
+            this.lblPunkteSpieler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunkteSpieler2.Location = new System.Drawing.Point(56, 19);
+            this.lblPunkteSpieler2.Name = "lblPunkteSpieler2";
+            this.lblPunkteSpieler2.Size = new System.Drawing.Size(94, 13);
+            this.lblPunkteSpieler2.TabIndex = 19;
+            this.lblPunkteSpieler2.Text = "-";
+            this.lblPunkteSpieler2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(845, 693);
+            this.ClientSize = new System.Drawing.Size(845, 725);
+            this.Controls.Add(this.gbSpieler2);
+            this.Controls.Add(this.gbSpieler1);
             this.Controls.Add(this.btnBeenden);
             this.Controls.Add(this.tbConsole);
             this.Controls.Add(this.btnEditor);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnSwitchPlayer);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblSpieler);
             this.Controls.Add(this.btnLeft);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnUp);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnWuerfeln);
             this.Controls.Add(this.lblWuerfel);
             this.Controls.Add(this.pictureBox1);
@@ -306,6 +353,10 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbSpieler1.ResumeLayout(false);
+            this.gbSpieler1.PerformLayout();
+            this.gbSpieler2.ResumeLayout(false);
+            this.gbSpieler2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,13 +367,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblWuerfel;
         private System.Windows.Forms.Button btnWuerfeln;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.Label lblSpieler;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSwitchPlayer;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnEditor;
@@ -335,6 +384,12 @@
         private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
         private System.Windows.Forms.TextBox tbConsole;
         private System.Windows.Forms.Button btnBeenden;
+        private System.Windows.Forms.GroupBox gbSpieler1;
+        private System.Windows.Forms.GroupBox gbSpieler2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPunkteSpieler1;
+        private System.Windows.Forms.Label lblPunkteSpieler2;
     }
 }
 
