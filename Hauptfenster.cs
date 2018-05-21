@@ -33,17 +33,22 @@ namespace grundspiel
                     return;
             }
 
+            NeuesSpiel neuesSpielForm = new NeuesSpiel();
+            neuesSpielForm.ShowDialog();
+
+            if (neuesSpielForm.DialogResult != DialogResult.OK)
+                return;
+
             spiel = new Spiel(10, 5);
 
             // Beispiel: Hindernis
             spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, true, 1, Resource1.hindernis));
 
             // Beispiel: Item
-            spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));            
+            spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));
 
-            // Beispiel: Spieler
-            spiel.addSpieler(new Spieler("Spieler1", spiel.getZufallFreiesFeld(), Resource1.player1));
-            spiel.addSpieler(new Spieler("Spieler2", spiel.getZufallFreiesFeld(), Resource1.player2));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), spiel.getZufallFreiesFeld(), Resource1.player1));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), spiel.getZufallFreiesFeld(), Resource1.player2));
 
             spiel.startNewRound();
             updateLabels();
