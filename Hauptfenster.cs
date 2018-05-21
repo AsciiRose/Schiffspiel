@@ -43,10 +43,16 @@ namespace grundspiel
             pictureBox1.BackgroundImage = Resource1.Map002;
 
             // Beispiel: Hindernis
-            spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, false, 0, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Anker", 2, 4, true, 3, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", 1, 1, true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", 5, 3, true, 1, Resource1.hindernis));
 
             // Beispiel: Item
             spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Paddel", 3, 1, 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Fernrohr", 2, 1, 20, Resource1.item));
+            spiel.addFeldObjekt(new Item("Steuer", 7, 0, 100, Resource1.item));
 
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), spiel.getZufallFreiesFeld(), Resource1.player1));
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), spiel.getZufallFreiesFeld(), Resource1.player2));
@@ -172,10 +178,10 @@ namespace grundspiel
                 zeichneFeld();
                 updateLabels();
             }
-            else if(!spiel.getDarfWueferln())
+            else if (!spiel.getDarfWueferln())
             {
                 btnSwitchPlayer.Select();
-                printToConsole(spiel.getSpielerAktivName()+" hat keine Schritte mehr, bitte an den nächsten Spieler übergeben.");
+                printToConsole(spiel.getSpielerAktivName() + " hat keine Schritte mehr, bitte an den nächsten Spieler übergeben.");
             }
         }
 
@@ -251,7 +257,6 @@ namespace grundspiel
         {
             string output = "[" + DateTime.Now.ToLongTimeString() + "] " + message + "\n";
             tbConsole.AppendText(output);
-            Console.Write(message);
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)

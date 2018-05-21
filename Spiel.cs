@@ -91,6 +91,81 @@ namespace grundspiel
             else
                 bewegeSpielerAktiv(richtungsVektor);
         }
+        public void spielfeldKippen(Point richtungsVektor)
+        {
+            bool gerutscht;
+
+            do
+            {
+                gerutscht = false;
+
+                foreach (Objekt objekt in feldObjekte)
+                {
+                    Point position = new Point(objekt.getPosition().X, objekt.getPosition().Y);
+                    position.Offset(richtungsVektor);
+
+                    if (objekt.GetType() == typeof(Hindernis))
+                    {
+                        Hindernis hindernis = (Hindernis)objekt;
+
+                        if (hindernis.isBeweglich())
+                        {
+                            if (canMoveTo(position))
+                            {
+                                objekt.verschiebeUm(richtungsVektor);
+                                gerutscht = true;
+                            }
+                        }
+                    }
+
+                    if (objekt.GetType() == typeof(Item))
+                    {
+                        if (canMoveTo(position))
+                        {
+                            objekt.verschiebeUm(richtungsVektor);
+                            gerutscht = true;
+                        }
+                        /*
+                        else if (isFeldBelegt(position))
+                        {
+                            if (getObjektAufFeld(position).GetType() == typeof(Spieler))
+                            {
+                                spielerAktiv.addItem((Item)objekt);
+                                feldObjekte.Remove(objekt);
+                                gerutscht = true;
+                            }
+                        }
+                        */
+                    }
+
+                    if (objekt.GetType() == typeof(Spieler))
+                    {
+                        if (canMoveTo(position))
+                        {
+                            objekt.verschiebeUm(richtungsVektor);
+                            gerutscht = true;
+                        }
+                        else if (isFeldBelegt(position))
+                        {
+                            /*
+                            if (getObjektAufFeld(position).GetType() == typeof(Item))
+                            {
+                                Item item = (Item)getObjektAufFeld(position);
+                                spielerAktiv.addItem(item);
+                                feldObjekte.Remove(item);
+                                gerutscht = true;
+                            }
+                            */
+
+                            if (getObjektAufFeld(position).GetType() == typeof(Spieler))
+                            {
+                                starteDuell();
+                            }
+                        }
+                    }
+                }
+            } while (gerutscht);
+        }
 
         private void hindernisVerschieben(Point richtungsVektor, Hindernis hindernis)
         {
@@ -126,7 +201,7 @@ namespace grundspiel
         private void starteDuell()
         {
             // TODO: Duell zwischen Spielern um Ruhm und Ehre. (Und um Items)
-            throw new NotImplementedException();
+            Console.WriteLine("Duell");
         }
 
         public Point getZufallFreiesFeld()
