@@ -40,6 +40,7 @@ namespace grundspiel
                 return;
 
             spiel = new Spiel(10, 5);
+            pictureBox1.BackgroundImage = Resource1.Map002;
 
             // Beispiel: Hindernis
             spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, true, 1, Resource1.hindernis));
@@ -236,11 +237,6 @@ namespace grundspiel
             startEditor();
         }
 
-        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Hauptfenster_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (spiel != null)
@@ -256,6 +252,21 @@ namespace grundspiel
             string output = "[" + DateTime.Now.ToLongTimeString() + "] " + message + "\n";
             tbConsole.AppendText(output);
             Console.Write(message);
+        }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            spielBeenden();
+        }
+
+        private void btnBeenden_Click(object sender, EventArgs e)
+        {
+            spielBeenden();
+        }
+
+        private void spielBeenden()
+        {
+            this.Close();
         }
     }
 }

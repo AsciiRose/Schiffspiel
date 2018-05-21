@@ -49,6 +49,7 @@
             this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBeenden = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,18 +57,20 @@
             // lblWuerfel
             // 
             this.lblWuerfel.AutoSize = true;
-            this.lblWuerfel.Location = new System.Drawing.Point(686, 629);
+            this.lblWuerfel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblWuerfel.Location = new System.Drawing.Point(410, 602);
             this.lblWuerfel.Name = "lblWuerfel";
-            this.lblWuerfel.Size = new System.Drawing.Size(13, 13);
+            this.lblWuerfel.Size = new System.Drawing.Size(18, 17);
             this.lblWuerfel.TabIndex = 1;
             this.lblWuerfel.Text = "--";
             // 
             // btnWuerfeln
             // 
             this.btnWuerfeln.Enabled = false;
-            this.btnWuerfeln.Location = new System.Drawing.Point(757, 624);
+            this.btnWuerfeln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnWuerfeln.Location = new System.Drawing.Point(696, 619);
             this.btnWuerfeln.Name = "btnWuerfeln";
-            this.btnWuerfeln.Size = new System.Drawing.Size(75, 23);
+            this.btnWuerfeln.Size = new System.Drawing.Size(136, 62);
             this.btnWuerfeln.TabIndex = 2;
             this.btnWuerfeln.Text = "Würfeln";
             this.btnWuerfeln.UseVisualStyleBackColor = true;
@@ -76,88 +79,94 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(638, 629);
+            this.label1.Location = new System.Drawing.Point(358, 604);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Moves:";
+            this.label1.Text = "Schritte:";
             // 
             // btnUp
             // 
             this.btnUp.Enabled = false;
-            this.btnUp.Location = new System.Drawing.Point(516, 584);
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnUp.Location = new System.Drawing.Point(571, 585);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(37, 23);
+            this.btnUp.Size = new System.Drawing.Size(35, 28);
             this.btnUp.TabIndex = 4;
-            this.btnUp.Text = "^";
+            this.btnUp.Text = "⮝";
             this.btnUp.UseVisualStyleBackColor = true;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnRight
             // 
             this.btnRight.Enabled = false;
-            this.btnRight.Location = new System.Drawing.Point(559, 608);
+            this.btnRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRight.Location = new System.Drawing.Point(612, 620);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(37, 23);
+            this.btnRight.Size = new System.Drawing.Size(35, 28);
             this.btnRight.TabIndex = 5;
-            this.btnRight.Text = ">";
+            this.btnRight.Text = "⮞";
             this.btnRight.UseVisualStyleBackColor = true;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnDown
             // 
             this.btnDown.Enabled = false;
-            this.btnDown.Location = new System.Drawing.Point(516, 631);
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.Location = new System.Drawing.Point(571, 653);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(37, 23);
+            this.btnDown.Size = new System.Drawing.Size(35, 28);
             this.btnDown.TabIndex = 6;
-            this.btnDown.Text = "v";
+            this.btnDown.Text = "⮟";
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnLeft
             // 
             this.btnLeft.Enabled = false;
-            this.btnLeft.Location = new System.Drawing.Point(473, 608);
+            this.btnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeft.Location = new System.Drawing.Point(530, 620);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(37, 23);
+            this.btnLeft.Size = new System.Drawing.Size(35, 28);
             this.btnLeft.TabIndex = 7;
-            this.btnLeft.Text = "<";
+            this.btnLeft.Text = "⮜";
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // lblSpieler
             // 
             this.lblSpieler.AutoSize = true;
-            this.lblSpieler.Location = new System.Drawing.Point(686, 590);
+            this.lblSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblSpieler.Location = new System.Drawing.Point(410, 585);
             this.lblSpieler.Name = "lblSpieler";
-            this.lblSpieler.Size = new System.Drawing.Size(48, 13);
+            this.lblSpieler.Size = new System.Drawing.Size(64, 17);
             this.lblSpieler.TabIndex = 8;
             this.lblSpieler.Text = "Spieler 1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(646, 590);
+            this.label2.Location = new System.Drawing.Point(357, 587);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Aktiv:";
+            this.label2.Text = "Am Zug:";
             // 
             // btnSwitchPlayer
             // 
             this.btnSwitchPlayer.Enabled = false;
-            this.btnSwitchPlayer.Location = new System.Drawing.Point(757, 585);
+            this.btnSwitchPlayer.Location = new System.Drawing.Point(696, 585);
             this.btnSwitchPlayer.Name = "btnSwitchPlayer";
-            this.btnSwitchPlayer.Size = new System.Drawing.Size(75, 23);
+            this.btnSwitchPlayer.Size = new System.Drawing.Size(136, 28);
             this.btnSwitchPlayer.TabIndex = 11;
-            this.btnSwitchPlayer.Text = "Naechster";
+            this.btnSwitchPlayer.Text = "Runde abschließen";
             this.btnSwitchPlayer.UseVisualStyleBackColor = true;
             this.btnSwitchPlayer.Click += new System.EventHandler(this.btnSwitchPlayer_Click);
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(12, 624);
+            this.btnNewGame.Location = new System.Drawing.Point(12, 585);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 23);
             this.btnNewGame.TabIndex = 12;
@@ -168,7 +177,7 @@
             // btnEditor
             // 
             this.btnEditor.Enabled = false;
-            this.btnEditor.Location = new System.Drawing.Point(12, 590);
+            this.btnEditor.Location = new System.Drawing.Point(12, 614);
             this.btnEditor.Name = "btnEditor";
             this.btnEditor.Size = new System.Drawing.Size(75, 23);
             this.btnEditor.TabIndex = 13;
@@ -200,19 +209,19 @@
             // neuesSpielToolStripMenuItem
             // 
             this.neuesSpielToolStripMenuItem.Name = "neuesSpielToolStripMenuItem";
-            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.neuesSpielToolStripMenuItem.Text = "Neues Spiel";
             this.neuesSpielToolStripMenuItem.Click += new System.EventHandler(this.neuesSpielToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(132, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -228,7 +237,7 @@
             // 
             this.editorToolStripMenuItem.Enabled = false;
             this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
-            this.editorToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.editorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editorToolStripMenuItem.Text = "Editor";
             this.editorToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
@@ -246,18 +255,30 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(820, 420);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnBeenden
+            // 
+            this.btnBeenden.Location = new System.Drawing.Point(12, 658);
+            this.btnBeenden.Name = "btnBeenden";
+            this.btnBeenden.Size = new System.Drawing.Size(75, 23);
+            this.btnBeenden.TabIndex = 16;
+            this.btnBeenden.Text = "Beenden";
+            this.btnBeenden.UseVisualStyleBackColor = true;
+            this.btnBeenden.Click += new System.EventHandler(this.btnBeenden_Click);
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(845, 669);
+            this.ClientSize = new System.Drawing.Size(845, 693);
+            this.Controls.Add(this.btnBeenden);
             this.Controls.Add(this.tbConsole);
             this.Controls.Add(this.btnEditor);
             this.Controls.Add(this.btnNewGame);
@@ -313,6 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
         private System.Windows.Forms.TextBox tbConsole;
+        private System.Windows.Forms.Button btnBeenden;
     }
 }
 
