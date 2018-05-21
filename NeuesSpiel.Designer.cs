@@ -33,7 +33,7 @@
             this.tbNameSpieler1 = new System.Windows.Forms.TextBox();
             this.tbNameSpieler2 = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.btnEingabeLeeren = new System.Windows.Forms.Button();
+            this.btnEingabeZuruecksetzen = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             this.tbNameSpieler1.Name = "tbNameSpieler1";
             this.tbNameSpieler1.Size = new System.Drawing.Size(126, 20);
             this.tbNameSpieler1.TabIndex = 2;
+            this.tbNameSpieler1.Text = "Spieler 1";
             // 
             // tbNameSpieler2
             // 
@@ -68,6 +69,7 @@
             this.tbNameSpieler2.Name = "tbNameSpieler2";
             this.tbNameSpieler2.Size = new System.Drawing.Size(126, 20);
             this.tbNameSpieler2.TabIndex = 3;
+            this.tbNameSpieler2.Text = "Spieler 2";
             // 
             // btnStart
             // 
@@ -80,15 +82,15 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnEingabeLeeren
+            // btnEingabeZuruecksetzen
             // 
-            this.btnEingabeLeeren.Location = new System.Drawing.Point(12, 139);
-            this.btnEingabeLeeren.Name = "btnEingabeLeeren";
-            this.btnEingabeLeeren.Size = new System.Drawing.Size(99, 23);
-            this.btnEingabeLeeren.TabIndex = 5;
-            this.btnEingabeLeeren.Text = "Felder leeren";
-            this.btnEingabeLeeren.UseVisualStyleBackColor = true;
-            this.btnEingabeLeeren.Click += new System.EventHandler(this.btnEingabeLeeren_Click);
+            this.btnEingabeZuruecksetzen.Location = new System.Drawing.Point(12, 139);
+            this.btnEingabeZuruecksetzen.Name = "btnEingabeZuruecksetzen";
+            this.btnEingabeZuruecksetzen.Size = new System.Drawing.Size(99, 23);
+            this.btnEingabeZuruecksetzen.TabIndex = 5;
+            this.btnEingabeZuruecksetzen.Text = "Zurücksetzen";
+            this.btnEingabeZuruecksetzen.UseVisualStyleBackColor = true;
+            this.btnEingabeZuruecksetzen.Click += new System.EventHandler(this.btnEingabeZuruecksetzen_Click);
             // 
             // btnCancel
             // 
@@ -106,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(240, 172);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnEingabeLeeren);
+            this.Controls.Add(this.btnEingabeZuruecksetzen);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tbNameSpieler2);
             this.Controls.Add(this.tbNameSpieler1);
@@ -127,7 +129,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnEingabeLeeren;
+        private System.Windows.Forms.Button btnEingabeZuruecksetzen;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbNameSpieler1;
         private System.Windows.Forms.TextBox tbNameSpieler2;

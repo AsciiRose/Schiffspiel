@@ -11,9 +11,14 @@ namespace grundspiel
 {
     public partial class NeuesSpiel : Form
     {
+        private String defaultNameSpieler1;
+        private String defaultNameSpieler2;
+
         public NeuesSpiel()
         {
             InitializeComponent();
+            defaultNameSpieler1 = getNameSpieler1();
+            defaultNameSpieler2 = getNameSpieler2();
         }
 
         public String getNameSpieler1()
@@ -43,10 +48,10 @@ namespace grundspiel
             DialogResult = DialogResult.OK;
         }
 
-        private void btnEingabeLeeren_Click(object sender, EventArgs e)
+        private void btnEingabeZuruecksetzen_Click(object sender, EventArgs e)
         {
-            tbNameSpieler1.Text = String.Empty;
-            tbNameSpieler2.Text = String.Empty;
+            tbNameSpieler1.Text = defaultNameSpieler1;
+            tbNameSpieler2.Text = defaultNameSpieler2;
             tbNameSpieler1.Select();
         }
 
