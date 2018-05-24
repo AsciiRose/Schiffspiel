@@ -194,6 +194,9 @@ namespace grundspiel
             lblSpieler.Text = spiel.getSpielerAktivName();
             lblPunkteSpieler1.Text = spiel.getSpieler1Punkte().ToString();
             lblPunkteSpieler2.Text = spiel.getSpieler2Punkte().ToString();
+            List<string> consoleOutLines = spiel.getOutputLines();
+            foreach (string line in consoleOutLines)
+                printToConsole(line);
         }
 
         private void zeichneFeld()

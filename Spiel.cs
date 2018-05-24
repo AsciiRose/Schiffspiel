@@ -16,12 +16,14 @@ namespace grundspiel
         private int schritte;
         private bool darfWuerfeln;
         private List<Objekt> feldObjekte;
+        private List<string> output;
 
         public Spiel(int breite, int hoehe)
         {
             this.breiteFeld = breite;
             this.hoeheFeld = hoehe;
             feldObjekte = new List<Objekt>();
+            output = new List<string>();
 
             rand = new Random();
 
@@ -103,6 +105,8 @@ namespace grundspiel
         }
         public void spielfeldKippen(Point richtungsVektor)
         {
+            output.Add("Mit ächzenden Balken kippt das Schiff.");
+
             bool gerutscht;
 
             do
@@ -161,10 +165,14 @@ namespace grundspiel
                     hindernis.verschiebeUm(richtungsVektor);
                     schritte -= hindernis.getGewicht();
                     spielerAktiv.addPunkte(hindernis.getGewicht()*2);
+                    output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, verschiebt " + hindernis.getBezeichnung() + " und erhält " + hindernis.getGewicht() * 2 + " Punkte.");
 
                     bewegeSpielerAktiv(richtungsVektor);
                 }
             }
+            else
+                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + hindernis.getGewicht() + " Bewegungspunkte.");
+
         }
 
         private void sammleItem(Point richtungsVektor, Item item)
@@ -172,6 +180,7 @@ namespace grundspiel
             spielerAktiv.addItem(item);
             spielerAktiv.addPunkte(item.getWert());
             feldObjekte.Remove(item);
+            output.Add(spielerAktiv.getBezeichnung() + " hat ein " + item.getBezeichnung() + " gesammelt und erhält " + item.getWert() + " Punkte.");
 
             bewegeSpielerAktiv(richtungsVektor);
         }
@@ -185,7 +194,8 @@ namespace grundspiel
         private void starteDuell()
         {
             // TODO: Duell zwischen Spielern um Ruhm und Ehre. (Und um Items)
-            Console.WriteLine("Duell");
+            output.Add(spielerAktiv.getBezeichnung() + " ist wohl auf Krawall gebürstet und möchte sich duellieren.");
+            startNewRound();
         }
 
         public Point getZufallFreiesFeld()
@@ -297,6 +307,13 @@ namespace grundspiel
                 spielerAktiv = spieler2;
             else
                 spielerAktiv = spieler1;
+        }
+
+        public List<string> getOutputLines()
+        {
+            List<String> returnList = output;
+            output = new List<string>();
+            return returnList;
         }
     }
 }
