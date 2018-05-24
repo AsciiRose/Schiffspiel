@@ -54,8 +54,8 @@ namespace grundspiel
             spiel.addFeldObjekt(new Item("Fernrohr", 2, 1, 20, Resource1.item));
             spiel.addFeldObjekt(new Item("Steuer", 7, 0, 100, Resource1.item));
 
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), spiel.getZufallFreiesFeld(), Resource1.player1));
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), spiel.getZufallFreiesFeld(), Resource1.player2));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 0), Resource1.player1));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, 4), Resource1.player2));
 
             printToConsole("Neues Spiel gestartet");
             printToConsole("'" + neuesSpielForm.getNameSpieler1() + "' und '" + neuesSpielForm.getNameSpieler2() + "' spielen");
@@ -198,8 +198,8 @@ namespace grundspiel
 
         private void zeichneFeld()
         {
-            int zellGroeße = 80;
-            int randSpielfeld = 10;
+            int zellGroeße = 60;
+            int randSpielfeld = 70;
 
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
