@@ -14,6 +14,8 @@ namespace grundspiel
         private int breiteFeld;
         private int hoeheFeld;
         private int schritte;
+        private int countDownWelle;
+        private int durationWelle;
         private bool darfWuerfeln;
         private List<Objekt> feldObjekte;
         private List<string> output;
@@ -27,6 +29,8 @@ namespace grundspiel
 
             rand = new Random();
 
+            countDownWelle = rand.Next(3, 7);
+            durationWelle = rand.Next(2, 4);
             spielerAktiv = null;
         }
 
@@ -35,6 +39,29 @@ namespace grundspiel
             schritte = 0;
             darfWuerfeln = true;
             spielerAktivWechseln();
+
+            if(countDownWelle == 0)
+            {
+                output.Add(" >> Das Schiff fährt auf die Welle auf. FESTHALTEN!");
+                spielfeldKippen(new Point(-1, 0));
+            }
+            else if (countDownWelle == 0 - durationWelle)
+            {
+                spielfeldKippen(new Point(1, 0));
+                countDownWelle = rand.Next(5, 15);
+                durationWelle = rand.Next(2, 4);
+                output.Add(" >> Das Schiff fährt von der Welle ab. Geschafft!");
+            }
+            else if (countDownWelle == 3)
+            {
+                output.Add("Die See wird unruhig...");
+            }
+            else if (countDownWelle == 2)
+            {
+                output.Add("Eine große Welle ist am Horizont zu sehen!");
+            }
+
+            countDownWelle--;
         }
 
         public int getBreite()
@@ -111,8 +138,6 @@ namespace grundspiel
         }
         public void spielfeldKippen(Point richtungsVektor)
         {
-            output.Add("Mit ächzenden Balken kippt das Schiff.");
-
             bool gerutscht;
             Item itemGesammeltSpieler1;
             Item itemGesammeltSpieler2;
@@ -165,8 +190,12 @@ namespace grundspiel
                                 objekt.verschiebeUm(richtungsVektor);
                                 gerutscht = true;
                             }
+                            else if (getObjektAufFeld(position).GetType() == typeof(Spieler))
+                            {
+                                starteDuell();
+                            }
                         }
-                        else if(canMoveTo(position))
+                        else if(isPosInFeld(position))
                         {
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
@@ -204,7 +233,7 @@ namespace grundspiel
                 }
             }
             else
-                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + (gewicht - schritte) + " Bewegungspunkte.");
+                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + (gewicht - schritte + 1) + " Bewegungspunkte.");
 
         }
 

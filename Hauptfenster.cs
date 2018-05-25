@@ -77,8 +77,7 @@ namespace grundspiel
                 btnWuerfeln.Enabled = true;
                 btnWuerfeln.Select();
                 btnSwitchPlayer.Enabled = false;
-                printToConsole(spiel.getSpielerAktivName() + " ist an der Reihe");
-                printToConsole("Bitte würfeln");
+                printToConsole(spiel.getSpielerAktivName() + " ist an der Reihe. Bitte würfeln.");
             }
             else
             {
@@ -92,13 +91,14 @@ namespace grundspiel
             spiel.wuerfeln();
             updateLabels();
             setNewRoundButtons();
-            printToConsole("Du hast eine " + spiel.getSchritte() + " gewürfelt");
+            printToConsole("Du hast eine " + spiel.getSchritte() + " gewürfelt. Mache deinen Zug.");
         }
 
         private void btnSwitchPlayer_Click(object sender, EventArgs e)
         {
             spiel.startNewRound();
             updateLabels();
+            zeichneFeld();
             setNewRoundButtons();
         }
 
@@ -184,7 +184,6 @@ namespace grundspiel
             else if (!spiel.getDarfWueferln())
             {
                 btnSwitchPlayer.Select();
-                printToConsole(spiel.getSpielerAktivName() + " hat keine Schritte mehr, bitte an den nächsten Spieler übergeben.");
             }
         }
 
