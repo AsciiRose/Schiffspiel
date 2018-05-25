@@ -10,12 +10,14 @@ namespace grundspiel
     {
         private List<Item> inventar;
         private int punkte;
+        private Color farbe;
 
-        public Spieler(string name, Point position, Bitmap bild)
+        public Spieler(string name, Point position, Bitmap bild, Color farbe)
             : base(name, position, bild)
         {
             inventar = new List<Item>();
             punkte = 0;
+            this.farbe = farbe;
         }
 
         public void addItem(Item item)
@@ -32,6 +34,11 @@ namespace grundspiel
         public void addPunkte(int punkte)
         {
             this.punkte += punkte;
+        }
+
+        public Color getFarbe()
+        {
+            return farbe;
         }
     }
 }

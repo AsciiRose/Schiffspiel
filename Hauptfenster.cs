@@ -54,8 +54,8 @@ namespace grundspiel
             spiel.addFeldObjekt(new Item("Fernrohr", 2, 1, 20, Resource1.item));
             spiel.addFeldObjekt(new Item("Steuer", 7, 0, 100, Resource1.item));
 
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 0), Resource1.player1));
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, 4), Resource1.player2));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 0), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, 4), Resource1.player2, neuesSpielForm.getFarbeSpieler2()));
 
             printToConsole("Neues Spiel gestartet");
             printToConsole("'" + neuesSpielForm.getNameSpieler1() + "' und '" + neuesSpielForm.getNameSpieler2() + "' spielen");
@@ -192,6 +192,7 @@ namespace grundspiel
         {
             lblWuerfel.Text = spiel.getSchritte().ToString();
             lblSpieler.Text = spiel.getSpielerAktivName();
+            lblSpieler.ForeColor = spiel.getSpielerAktivColor();
             lblPunkteSpieler1.Text = spiel.getSpieler1Punkte().ToString();
             lblPunkteSpieler2.Text = spiel.getSpieler2Punkte().ToString();
             List<string> consoleOutLines = spiel.getOutputLines();

@@ -58,6 +58,11 @@ namespace grundspiel
             return spielerAktiv.getBezeichnung();
         }
 
+        public Color getSpielerAktivColor()
+        {
+            return spielerAktiv.getFarbe();
+        }
+
         public int getSpieler1Punkte()
         {
             return spieler1.getPunkte();

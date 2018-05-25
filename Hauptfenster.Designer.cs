@@ -49,11 +49,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBeenden = new System.Windows.Forms.Button();
             this.gbSpieler1 = new System.Windows.Forms.GroupBox();
-            this.gbSpieler2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblPunkteSpieler1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gbSpieler2 = new System.Windows.Forms.GroupBox();
             this.lblPunkteSpieler2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSpieler1.SuspendLayout();
@@ -196,19 +196,19 @@
             // neuesSpielToolStripMenuItem
             // 
             this.neuesSpielToolStripMenuItem.Name = "neuesSpielToolStripMenuItem";
-            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neuesSpielToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.neuesSpielToolStripMenuItem.Text = "Neues Spiel";
             this.neuesSpielToolStripMenuItem.Click += new System.EventHandler(this.neuesSpielToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(132, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -224,7 +224,7 @@
             // 
             this.editorToolStripMenuItem.Enabled = false;
             this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
-            this.editorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editorToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.editorToolStripMenuItem.Text = "Editor";
             this.editorToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
@@ -270,6 +270,25 @@
             this.gbSpieler1.TabStop = false;
             this.gbSpieler1.Text = "Spieler 1";
             // 
+            // lblPunkteSpieler1
+            // 
+            this.lblPunkteSpieler1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunkteSpieler1.Location = new System.Drawing.Point(56, 19);
+            this.lblPunkteSpieler1.Name = "lblPunkteSpieler1";
+            this.lblPunkteSpieler1.Size = new System.Drawing.Size(88, 13);
+            this.lblPunkteSpieler1.TabIndex = 18;
+            this.lblPunkteSpieler1.Text = "-";
+            this.lblPunkteSpieler1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Punkte:";
+            // 
             // gbSpieler2
             // 
             this.gbSpieler2.Controls.Add(this.lblPunkteSpieler2);
@@ -281,34 +300,6 @@
             this.gbSpieler2.TabStop = false;
             this.gbSpieler2.Text = "Spieler 2";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Punkte:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Punkte:";
-            // 
-            // lblPunkteSpieler1
-            // 
-            this.lblPunkteSpieler1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunkteSpieler1.Location = new System.Drawing.Point(56, 19);
-            this.lblPunkteSpieler1.Name = "lblPunkteSpieler1";
-            this.lblPunkteSpieler1.Size = new System.Drawing.Size(88, 13);
-            this.lblPunkteSpieler1.TabIndex = 18;
-            this.lblPunkteSpieler1.Text = "-";
-            this.lblPunkteSpieler1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // lblPunkteSpieler2
             // 
             this.lblPunkteSpieler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,6 +309,15 @@
             this.lblPunkteSpieler2.TabIndex = 19;
             this.lblPunkteSpieler2.Text = "-";
             this.lblPunkteSpieler2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Punkte:";
             // 
             // Hauptfenster
             // 
