@@ -203,6 +203,7 @@ namespace grundspiel
         {
             int zellGroeße = 60;
             int randSpielfeld = 70;
+            int randZelle = 7;
 
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
@@ -223,8 +224,9 @@ namespace grundspiel
 
                 g.DrawImage(
                     objektBild,
-                    randSpielfeld + zellGroeße * objekt.getPosition().X + (zellGroeße - objektBild.Width)/2,
-                    randSpielfeld + zellGroeße * objekt.getPosition().Y + (zellGroeße - objektBild.Height)/2);
+                    randSpielfeld + randZelle + zellGroeße * objekt.getPosition().X,
+                    randSpielfeld + randZelle + zellGroeße * objekt.getPosition().Y,
+                    zellGroeße - randZelle * 2, zellGroeße - randZelle * 2);
             }
 
             pictureBox1.Image = newImg;
