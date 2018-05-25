@@ -21,6 +21,7 @@ namespace grundspiel
         public void addItem(Item item)
         {
             inventar.Add(item);
+            punkte += item.getWert();
         }
 
         public int getPunkte()

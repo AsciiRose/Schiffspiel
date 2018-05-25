@@ -158,27 +158,29 @@ namespace grundspiel
             Point hindernisPosition = new Point(hindernis.getPosition().X, hindernis.getPosition().Y);
             hindernisPosition.Offset(richtungsVektor);
 
-            if (schritte - hindernis.getGewicht() > 0)
+            int gewicht = hindernis.getGewicht();
+            int punkte = gewicht * 3;
+
+            if (schritte - gewicht > 0)
             {
                 if (canMoveTo(hindernisPosition))
                 {
                     hindernis.verschiebeUm(richtungsVektor);
-                    schritte -= hindernis.getGewicht();
-                    spielerAktiv.addPunkte(hindernis.getGewicht()*2);
-                    output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, verschiebt " + hindernis.getBezeichnung() + " und erhält " + hindernis.getGewicht() * 2 + " Punkte.");
+                    schritte -= gewicht;
+                    spielerAktiv.addPunkte(punkte);
+                    output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, verschiebt " + hindernis.getBezeichnung() + " und erhält " + punkte + " Punkte.");
 
                     bewegeSpielerAktiv(richtungsVektor);
                 }
             }
             else
-                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + hindernis.getGewicht() + " Bewegungspunkte.");
+                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + (gewicht - schritte) + " Bewegungspunkte.");
 
         }
 
         private void sammleItem(Point richtungsVektor, Item item)
         {
             spielerAktiv.addItem(item);
-            spielerAktiv.addPunkte(item.getWert());
             feldObjekte.Remove(item);
             output.Add(spielerAktiv.getBezeichnung() + " hat ein " + item.getBezeichnung() + " gesammelt und erhält " + item.getWert() + " Punkte.");
 
@@ -303,7 +305,7 @@ namespace grundspiel
                 else spielerAktiv = spieler2;
             }
 
-            if (spielerAktiv == spieler1)
+            else if (spielerAktiv == spieler1)
                 spielerAktiv = spieler2;
             else
                 spielerAktiv = spieler1;
