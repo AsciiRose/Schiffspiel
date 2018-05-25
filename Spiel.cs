@@ -89,7 +89,8 @@ namespace grundspiel
                 {
                     Item item = (Item)objekt;
 
-                    sammleItem(richtungsVektor, item);
+                    sammleItem(spielerAktiv, item);
+                    bewegeSpielerAktiv(richtungsVektor);
                 }
 
                 if (objekt.GetType() == typeof(Hindernis))
@@ -113,10 +114,14 @@ namespace grundspiel
             output.Add("Mit ächzenden Balken kippt das Schiff.");
 
             bool gerutscht;
+            Item itemGesammeltSpieler1;
+            Item itemGesammeltSpieler2;
 
             do
             {
                 gerutscht = false;
+                itemGesammeltSpieler1 = null;
+                itemGesammeltSpieler2 = null;
 
                 foreach (Objekt objekt in feldObjekte)
                 {
@@ -148,13 +153,33 @@ namespace grundspiel
 
                     if (objekt.GetType() == typeof(Spieler))
                     {
-                        if (canMoveTo(position))
+                        if (isFeldBelegt(position))
+                        {
+                            if (getObjektAufFeld(position).GetType() == typeof(Item))
+                            {
+                                if (objekt.Equals(spieler1))
+                                    itemGesammeltSpieler1 = (Item)getObjektAufFeld(position);
+                                else if (objekt.Equals(spieler2))
+                                    itemGesammeltSpieler2 = (Item)getObjektAufFeld(position);
+
+                                objekt.verschiebeUm(richtungsVektor);
+                                gerutscht = true;
+                            }
+                        }
+                        else if(canMoveTo(position))
                         {
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
                         }
                     }
                 }
+
+                if (itemGesammeltSpieler1 != null)
+                    sammleItem(spieler1, itemGesammeltSpieler1);
+
+                if (itemGesammeltSpieler2 != null)
+                    sammleItem(spieler2, itemGesammeltSpieler2);
+
             } while (gerutscht);
         }
 
@@ -183,13 +208,11 @@ namespace grundspiel
 
         }
 
-        private void sammleItem(Point richtungsVektor, Item item)
+        private void sammleItem(Spieler spieler, Item item)
         {
-            spielerAktiv.addItem(item);
+            spieler.addItem(item);
             feldObjekte.Remove(item);
-            output.Add(spielerAktiv.getBezeichnung() + " hat ein " + item.getBezeichnung() + " gesammelt und erhält " + item.getWert() + " Punkte.");
-
-            bewegeSpielerAktiv(richtungsVektor);
+            output.Add(spieler.getBezeichnung() + " hat ein " + item.getBezeichnung() + " gesammelt und erhält " + item.getWert() + " Punkte.");
         }
 
         private void bewegeSpielerAktiv(Point richtungsVektor)
