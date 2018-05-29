@@ -16,6 +16,12 @@ namespace grundspiel
             this.wert = wert;
         }
 
+        public Item(string bezeichnung, Point position, int wert, Bitmap bild)
+            : base(bezeichnung, position, bild)
+        {
+            this.wert = wert;
+        }
+
         public int getWert()
         {
             return wert;

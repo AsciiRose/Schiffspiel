@@ -43,16 +43,22 @@ namespace grundspiel
             pictureBox1.BackgroundImage = Resource1.Map002;
 
             // Beispiel: Hindernis
-            spiel.addFeldObjekt(new Hindernis("Mast", 4, 2, false, 0, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Anker", 2, 4, true, 3, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", 1, 1, true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", 5, 3, true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Mast", spiel.getZufallFreiesFeld(), false, 0, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Anker", spiel.getZufallFreiesFeld(), true, 3, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Mast", spiel.getZufallFreiesFeld(), false, 0, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Anker", spiel.getZufallFreiesFeld(), true, 3, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
 
             // Beispiel: Item
-            spiel.addFeldObjekt(new Item("Paddel", 6, 3, 10, Resource1.item));
-            spiel.addFeldObjekt(new Item("Paddel", 3, 1, 10, Resource1.item));
-            spiel.addFeldObjekt(new Item("Fernrohr", 2, 1, 20, Resource1.item));
-            spiel.addFeldObjekt(new Item("Steuer", 7, 0, 100, Resource1.item));
+            spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
+            spiel.addFeldObjekt(new Item("Steuer", spiel.getZufallFreiesFeld(), 100, Resource1.item));
 
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 0), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, 4), Resource1.player2, neuesSpielForm.getFarbeSpieler2()));

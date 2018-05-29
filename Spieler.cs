@@ -30,6 +30,7 @@ namespace grundspiel
         {
             Item item = inventar.ElementAt(r.Next(0, inventar.Count));
             inventar.Remove(item);
+            punkte -= item.getWert();
             return item;
         }
 

@@ -17,6 +17,13 @@ namespace grundspiel
             this.beweglich = beweglich;
             this.gewicht = gewicht;
         }
+        
+        public Hindernis(string bezeichnung, Point position, bool beweglich, int gewicht, Bitmap bild)
+            : base(bezeichnung, position, bild)
+        {
+            this.beweglich = beweglich;
+            this.gewicht = gewicht;
+        }
 
         public bool isBeweglich()
         {
