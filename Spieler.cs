@@ -26,6 +26,13 @@ namespace grundspiel
             punkte += item.getWert();
         }
 
+        public Item entferneZufälligesItemAusInventar(Random r)
+        {
+            Item item = inventar.ElementAt(r.Next(0, inventar.Count));
+            inventar.Remove(item);
+            return item;
+        }
+
         public int getPunkte()
         {
             return punkte;
@@ -39,6 +46,15 @@ namespace grundspiel
         public Color getFarbe()
         {
             return farbe;
+        }
+
+        public bool hatEinSteuer()
+        {
+            foreach (Item item in inventar)
+                if (item.getBezeichnung() == "Steuer")
+                    return true;
+
+            return false;
         }
     }
 }

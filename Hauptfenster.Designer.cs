@@ -54,6 +54,8 @@
             this.gbSpieler2 = new System.Windows.Forms.GroupBox();
             this.lblPunkteSpieler2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSteuerLinks = new System.Windows.Forms.Button();
+            this.btnSteuerRechts = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSpieler1.SuspendLayout();
@@ -63,7 +65,7 @@
             // lblWuerfel
             // 
             this.lblWuerfel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblWuerfel.Location = new System.Drawing.Point(593, 652);
+            this.lblWuerfel.Location = new System.Drawing.Point(543, 649);
             this.lblWuerfel.Name = "lblWuerfel";
             this.lblWuerfel.Size = new System.Drawing.Size(35, 28);
             this.lblWuerfel.TabIndex = 1;
@@ -86,7 +88,7 @@
             this.btnUp.Enabled = false;
             this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUp.Location = new System.Drawing.Point(593, 621);
+            this.btnUp.Location = new System.Drawing.Point(543, 618);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(35, 28);
             this.btnUp.TabIndex = 4;
@@ -98,7 +100,7 @@
             // 
             this.btnRight.Enabled = false;
             this.btnRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRight.Location = new System.Drawing.Point(634, 652);
+            this.btnRight.Location = new System.Drawing.Point(584, 651);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(35, 28);
             this.btnRight.TabIndex = 5;
@@ -110,7 +112,7 @@
             // 
             this.btnDown.Enabled = false;
             this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Location = new System.Drawing.Point(593, 683);
+            this.btnDown.Location = new System.Drawing.Point(543, 684);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(35, 28);
             this.btnDown.TabIndex = 6;
@@ -122,7 +124,7 @@
             // 
             this.btnLeft.Enabled = false;
             this.btnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeft.Location = new System.Drawing.Point(552, 652);
+            this.btnLeft.Location = new System.Drawing.Point(502, 651);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(35, 28);
             this.btnLeft.TabIndex = 7;
@@ -263,7 +265,7 @@
             // 
             this.gbSpieler1.Controls.Add(this.lblPunkteSpieler1);
             this.gbSpieler1.Controls.Add(this.label3);
-            this.gbSpieler1.Location = new System.Drawing.Point(151, 590);
+            this.gbSpieler1.Location = new System.Drawing.Point(117, 590);
             this.gbSpieler1.Name = "gbSpieler1";
             this.gbSpieler1.Size = new System.Drawing.Size(150, 123);
             this.gbSpieler1.TabIndex = 19;
@@ -293,7 +295,7 @@
             // 
             this.gbSpieler2.Controls.Add(this.lblPunkteSpieler2);
             this.gbSpieler2.Controls.Add(this.label1);
-            this.gbSpieler2.Location = new System.Drawing.Point(313, 590);
+            this.gbSpieler2.Location = new System.Drawing.Point(279, 590);
             this.gbSpieler2.Name = "gbSpieler2";
             this.gbSpieler2.Size = new System.Drawing.Size(156, 123);
             this.gbSpieler2.TabIndex = 20;
@@ -319,12 +321,39 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Punkte:";
             // 
+            // btnSteuerLinks
+            // 
+            this.btnSteuerLinks.Enabled = false;
+            this.btnSteuerLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSteuerLinks.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnSteuerLinks.Location = new System.Drawing.Point(645, 617);
+            this.btnSteuerLinks.Name = "btnSteuerLinks";
+            this.btnSteuerLinks.Size = new System.Drawing.Size(25, 45);
+            this.btnSteuerLinks.TabIndex = 21;
+            this.btnSteuerLinks.Text = "⮝";
+            this.btnSteuerLinks.UseVisualStyleBackColor = true;
+            this.btnSteuerLinks.Click += new System.EventHandler(this.btnKippeHoch_Click);
+            // 
+            // btnSteuerRechts
+            // 
+            this.btnSteuerRechts.Enabled = false;
+            this.btnSteuerRechts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSteuerRechts.Location = new System.Drawing.Point(645, 668);
+            this.btnSteuerRechts.Name = "btnSteuerRechts";
+            this.btnSteuerRechts.Size = new System.Drawing.Size(25, 45);
+            this.btnSteuerRechts.TabIndex = 22;
+            this.btnSteuerRechts.Text = "⮟";
+            this.btnSteuerRechts.UseVisualStyleBackColor = true;
+            this.btnSteuerRechts.Click += new System.EventHandler(this.btnKippeRunter_Click);
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(845, 725);
+            this.Controls.Add(this.btnSteuerRechts);
+            this.Controls.Add(this.btnSteuerLinks);
             this.Controls.Add(this.gbSpieler2);
             this.Controls.Add(this.gbSpieler1);
             this.Controls.Add(this.btnBeenden);
@@ -390,6 +419,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPunkteSpieler1;
         private System.Windows.Forms.Label lblPunkteSpieler2;
+        private System.Windows.Forms.Button btnSteuerLinks;
+        private System.Windows.Forms.Button btnSteuerRechts;
     }
 }
 

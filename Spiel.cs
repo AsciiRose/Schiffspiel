@@ -17,6 +17,7 @@ namespace grundspiel
         private int countDownWelle;
         private int durationWelle;
         private bool darfWuerfeln;
+        private bool darfSteuern;
         private List<Objekt> feldObjekte;
         private List<string> output;
 
@@ -29,8 +30,8 @@ namespace grundspiel
 
             rand = new Random();
 
-            countDownWelle = rand.Next(3, 7);
-            durationWelle = rand.Next(2, 4);
+            countDownWelle = rand.Next(15, 25);
+            durationWelle = rand.Next(8, 12);
             spielerAktiv = null;
         }
 
@@ -39,6 +40,7 @@ namespace grundspiel
             schritte = 0;
             darfWuerfeln = true;
             spielerAktivWechseln();
+            darfSteuern = spielerAktiv.hatEinSteuer();
 
             if(countDownWelle == 0)
             {
@@ -48,8 +50,8 @@ namespace grundspiel
             else if (countDownWelle == 0 - durationWelle)
             {
                 spielfeldKippen(new Point(1, 0));
-                countDownWelle = rand.Next(5, 15);
-                durationWelle = rand.Next(2, 4);
+                countDownWelle = rand.Next(15, 25);
+                durationWelle = rand.Next(8, 12);
                 output.Add(" >> Das Schiff fährt von der Welle ab. Geschafft!");
             }
             else if (countDownWelle == 3)
@@ -136,6 +138,7 @@ namespace grundspiel
             else
                 bewegeSpielerAktiv(richtungsVektor);
         }
+
         public void spielfeldKippen(Point richtungsVektor)
         {
             bool gerutscht;
@@ -278,6 +281,11 @@ namespace grundspiel
         public bool getDarfWueferln()
         {
             return darfWuerfeln;
+        }
+
+        public bool getDarfSteuern()
+        {
+            return darfSteuern;
         }
 
         public List<Objekt> getFeldObjekte()

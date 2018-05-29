@@ -72,17 +72,28 @@ namespace grundspiel
 
         private void setNewRoundButtons()
         {
-            if(spiel.getDarfWueferln())
+            btnWuerfeln.Enabled = false;
+            btnSwitchPlayer.Enabled = true;
+            btnSteuerLinks.Enabled = false;
+            btnSteuerRechts.Enabled = false;
+            btnSteuerLinks.BackColor = btnWuerfeln.BackColor;
+            btnSteuerRechts.BackColor = btnWuerfeln.BackColor;
+
+            if (spiel.getDarfWueferln())
             {
                 btnWuerfeln.Enabled = true;
                 btnWuerfeln.Select();
                 btnSwitchPlayer.Enabled = false;
-                printToConsole(spiel.getSpielerAktivName() + " ist an der Reihe. Bitte würfeln.");
-            }
-            else
-            {
-                btnWuerfeln.Enabled = false;
-                btnSwitchPlayer.Enabled = true;
+
+                if (spiel.getDarfSteuern())
+                {
+                    btnSteuerLinks.Enabled = true;
+                    btnSteuerRechts.Enabled = true;
+                    btnSteuerLinks.BackColor = Color.LightYellow;
+                    btnSteuerRechts.BackColor = Color.LightYellow;
+                }
+
+                printToConsole(spiel.getSpielerAktivName() + " ist an der Reihe. Bitte würfeln oder Steuern.");
             }
         }
 
@@ -282,6 +293,26 @@ namespace grundspiel
         private void spielBeenden()
         {
             this.Close();
+        }
+
+        private void btnKippeHoch_Click(object sender, EventArgs e)
+        {
+            printToConsole(" >> STEUERBORD! " + spiel.getSpielerAktivName() + " schlägt das Steuer nach rechts zum Anschlag.");
+            spiel.spielfeldKippen(new Point(0, -1));
+            spiel.startNewRound();
+            updateLabels();
+            zeichneFeld();
+            setNewRoundButtons();
+        }
+
+        private void btnKippeRunter_Click(object sender, EventArgs e)
+        {
+            printToConsole(" >> BACKBOARD! " + spiel.getSpielerAktivName() + " haut das Steuer komplett nach links rum.");
+            spiel.spielfeldKippen(new Point(0, +1));
+            spiel.startNewRound();
+            updateLabels();
+            zeichneFeld();
+            setNewRoundButtons();
         }
     }
 }
