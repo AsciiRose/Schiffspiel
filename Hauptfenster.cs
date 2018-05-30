@@ -197,6 +197,7 @@ namespace grundspiel
                 spiel.spielerLaufen(richtungsVektor);
                 zeichneFeld();
                 updateLabels();
+                setNewRoundButtons();
             }
             else if (!spiel.getDarfWueferln())
             {

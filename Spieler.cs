@@ -28,9 +28,14 @@ namespace grundspiel
 
         public Item entferneZufälligesItemAusInventar(Random r)
         {
-            Item item = inventar.ElementAt(r.Next(0, inventar.Count));
-            inventar.Remove(item);
-            punkte -= item.getWert();
+            Item item = null;
+
+            if (inventar.Count > 0)
+            {
+                inventar.ElementAt(r.Next(0, inventar.Count));
+                inventar.Remove(item);
+                punkte -= item.getWert();
+            }
             return item;
         }
 

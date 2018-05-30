@@ -257,6 +257,30 @@ namespace grundspiel
         {
             // TODO: Duell zwischen Spielern um Ruhm und Ehre. (Und um Items)
             output.Add(spielerAktiv.getBezeichnung() + " ist wohl auf Krawall gebürstet und möchte sich duellieren.");
+            Spieler sieger;
+            Spieler verlierer;
+            if (rand.Next(2) == 0)
+            {
+                sieger = spieler1;
+                verlierer = spieler2;
+            }
+            else
+            {
+                sieger = spieler2;
+                verlierer = spieler1;
+            }
+
+            Item trophy = verlierer.entferneZufälligesItemAusInventar(rand);
+
+            if (trophy != null)
+            {
+                output.Add(sieger.getBezeichnung() + " gewinnt das Duell und erober ein " + trophy.getBezeichnung() + " von " + verlierer.getBezeichnung());
+                sieger.addItem(trophy);
+            }
+            else
+            {
+                output.Add(sieger.getBezeichnung() + " gewinnt das Duell, aber " + verlierer.getBezeichnung() + " hat nur Sand in den Taschen...");
+            }
             startNewRound();
         }
 
@@ -266,7 +290,7 @@ namespace grundspiel
 
             do
             {
-                position.X = rand.Next(0, breiteFeld);
+                position.X = rand.Next(1, breiteFeld);
                 position.Y = rand.Next(0, hoeheFeld);
             } while (isFeldBelegt(position));
 
