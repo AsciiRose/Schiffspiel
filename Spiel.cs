@@ -274,7 +274,7 @@ namespace grundspiel
 
             if (trophy != null)
             {
-                output.Add(sieger.getBezeichnung() + " gewinnt das Duell und erober ein " + trophy.getBezeichnung() + " von " + verlierer.getBezeichnung());
+                output.Add(sieger.getBezeichnung() + " gewinnt das Duell und erobert ein " + trophy.getBezeichnung() + " von " + verlierer.getBezeichnung());
                 sieger.addItem(trophy);
             }
             else

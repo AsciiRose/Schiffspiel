@@ -39,7 +39,7 @@ namespace grundspiel
             if (neuesSpielForm.DialogResult != DialogResult.OK)
                 return;
 
-            spiel = new Spiel(10, 5);
+            spiel = new Spiel(15, 7);
             pictureBox1.BackgroundImage = Resource1.Map002;
 
             // Beispiel: Hindernis
@@ -60,8 +60,8 @@ namespace grundspiel
             spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
             spiel.addFeldObjekt(new Item("Steuer", spiel.getZufallFreiesFeld(), 100, Resource1.item));
 
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 0), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
-            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, 4), Resource1.player2, neuesSpielForm.getFarbeSpieler2()));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 1), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
+            spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, spiel.getHoehe()-2), Resource1.player2, neuesSpielForm.getFarbeSpieler2()));
 
             printToConsole("Neues Spiel gestartet");
             printToConsole("'" + neuesSpielForm.getNameSpieler1() + "' und '" + neuesSpielForm.getNameSpieler2() + "' spielen");
@@ -219,9 +219,11 @@ namespace grundspiel
 
         private void zeichneFeld()
         {
-            int zellGroeße = 60;
+            int zellGroeße = 600 / spiel.getBreite();
             int randSpielfeld = 70;
-            int randZelle = 7;
+            int randZelle = 25 - spiel.getBreite() * 2;
+            if (randZelle < 0)
+                randZelle = 0;
 
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
