@@ -261,6 +261,8 @@ namespace grundspiel
 
             Graphics g = Graphics.FromImage(newImg);          
             Pen pen = new Pen(Color.Black, 2);
+            SolidBrush spieler1pinsel = new SolidBrush(spiel.getSpieler1Color());
+            SolidBrush spieler2pinsel = new SolidBrush(spiel.getSpieler2Color());
 
             for (int i = 0; i < spiel.getBreite(); i++)
             {
@@ -269,6 +271,16 @@ namespace grundspiel
             }
 
             Bitmap objektBild;
+
+
+            g.FillEllipse(spieler1pinsel, 
+                randSpielfeld + (randZelle + 4) * 2 + zellGroeße * spiel.getSpieler1Pos().X,
+                randSpielfeld + (randZelle + 4) * 2 + zellGroeße * spiel.getSpieler1Pos().Y,
+                zellGroeße - (randZelle + 4) * 2 * 2, zellGroeße - (randZelle + 4) * 2 * 2);
+            g.FillEllipse(spieler2pinsel,
+                randSpielfeld + (randZelle + 4) * 2 + zellGroeße * spiel.getSpieler2Pos().X,
+                randSpielfeld + (randZelle + 4) * 2 + zellGroeße * spiel.getSpieler2Pos().Y,
+                zellGroeße - (randZelle + 4) * 2 * 2, zellGroeße - (randZelle + 4) * 2 * 2);
 
             foreach (Objekt objekt in spiel.getFeldObjekte())
             {

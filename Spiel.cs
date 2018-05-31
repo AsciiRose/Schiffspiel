@@ -108,6 +108,16 @@ namespace grundspiel
             return spielerAktiv.getFarbe();
         }
 
+        public Color getSpieler1Color()
+        {
+            return spieler1.getFarbe();
+        }
+
+        public Color getSpieler2Color()
+        {
+            return spieler2.getFarbe();
+        }
+
         public int getSpieler1Punkte()
         {
             return spieler1.getPunkte();
@@ -128,6 +138,16 @@ namespace grundspiel
             return spieler2.getInventarListe();
         }
 
+        public Point getSpieler1Pos()
+        {
+            return spieler1.getPosition();
+        }
+
+        public Point getSpieler2Pos()
+        {
+            return spieler2.getPosition();
+        }
+        
         public void spielerLaufen(Point richtungsVektor)
         {
             Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);

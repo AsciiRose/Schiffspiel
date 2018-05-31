@@ -50,7 +50,13 @@ namespace grundspiel
         
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if(getNameSpieler1().Length < 3)
+            if (getNameSpieler1() == getNameSpieler1())
+            {
+                MessageBox.Show("Die Namen dürfen nicht gleich sein. Bitte unterschiedliche Spielernamen vergeben.");
+                return;
+            }
+
+            if (getNameSpieler1().Length < 3)
             {
                 MessageBox.Show("Der Eingegebene Name für Spieler 1 ist zu kurz. Bitte drei oder mehr Zeichen eingeben.");
                 return;
