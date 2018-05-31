@@ -188,8 +188,13 @@ namespace grundspiel
         public void spielfeldKippen(Point richtungsVektor)
         {
             bool gerutscht;
+            bool naechstePosInFeld;
+            bool naechstePosFrei;
             Item itemGesammeltSpieler1;
             Item itemGesammeltSpieler2;
+
+
+
 
             do
             {
@@ -201,24 +206,23 @@ namespace grundspiel
                 {
                     Point position = new Point(objekt.getPosition().X, objekt.getPosition().Y);
                     position.Offset(richtungsVektor);
+                    naechstePosInFeld = isPosInFeld(position);
+                    naechstePosFrei = !isFeldBelegt(position);
 
                     if (objekt.GetType() == typeof(Hindernis))
                     {
                         Hindernis hindernis = (Hindernis)objekt;
 
-                        if (hindernis.isBeweglich())
+                        if (hindernis.isBeweglich() && naechstePosFrei && naechstePosInFeld)
                         {
-                            if (canMoveTo(position))
-                            {
-                                objekt.verschiebeUm(richtungsVektor);
-                                gerutscht = true;
-                            }
+                            objekt.verschiebeUm(richtungsVektor);
+                            gerutscht = true;
                         }
                     }
 
                     if (objekt.GetType() == typeof(Item))
                     {
-                        if (canMoveTo(position))
+                        if (naechstePosFrei && naechstePosInFeld)
                         {
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
@@ -227,7 +231,7 @@ namespace grundspiel
 
                     if (objekt.GetType() == typeof(Spieler))
                     {
-                        if (isFeldBelegt(position))
+                        if (!naechstePosFrei)
                         {
                             if (getObjektAufFeld(position).GetType() == typeof(Item))
                             {
@@ -244,7 +248,7 @@ namespace grundspiel
                                 starteDuell();
                             }
                         }
-                        else if(isPosInFeld(position))
+                        else if(naechstePosInFeld)
                         {
                             objekt.verschiebeUm(richtungsVektor);
                             gerutscht = true;
@@ -273,12 +277,11 @@ namespace grundspiel
             }
             else if (!isPosInFeld(hindernisPosition))
             {
-                hindernisueberBoardWerfen(hindernis);
-                bewegeSpielerAktiv(richtungsVektor);
+                hindernisueberBoardWerfen(richtungsVektor, hindernis);
             }
         }
 
-        private void hindernisueberBoardWerfen(Hindernis hindernis)
+        private void hindernisueberBoardWerfen(Point richtungsVektor, Hindernis hindernis)
         {
             int gewicht = hindernis.getGewicht();
             int punkte = gewicht * 5;
@@ -287,6 +290,7 @@ namespace grundspiel
             {
                 schritte -= gewicht;
                 feldObjekte.Remove(hindernis);
+                bewegeSpielerAktiv(richtungsVektor);
                 spielerAktiv.addPunkte(punkte);
                 output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, wirft " + hindernis.getBezeichnung() + " über Board und erhält " + punkte + " Punkte.");
             }
