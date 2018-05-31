@@ -50,7 +50,7 @@ namespace grundspiel
         
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (getNameSpieler1() == getNameSpieler1())
+            if (getNameSpieler1() == getNameSpieler2())
             {
                 MessageBox.Show("Die Namen dürfen nicht gleich sein. Bitte unterschiedliche Spielernamen vergeben.");
                 return;
