@@ -57,6 +57,10 @@
             this.btnSteuerLinks = new System.Windows.Forms.Button();
             this.btnSteuerRechts = new System.Windows.Forms.Button();
             this.pbSpielende = new System.Windows.Forms.ProgressBar();
+            this.lbInventarSpieler1 = new System.Windows.Forms.ListBox();
+            this.lbInventarSpieler2 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSpieler1.SuspendLayout();
@@ -136,7 +140,7 @@
             // lblSpieler
             // 
             this.lblSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSpieler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSpieler.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpieler.Location = new System.Drawing.Point(594, 590);
             this.lblSpieler.Name = "lblSpieler";
             this.lblSpieler.Size = new System.Drawing.Size(239, 24);
@@ -264,6 +268,8 @@
             // 
             // gbSpieler1
             // 
+            this.gbSpieler1.Controls.Add(this.label2);
+            this.gbSpieler1.Controls.Add(this.lbInventarSpieler1);
             this.gbSpieler1.Controls.Add(this.lblPunkteSpieler1);
             this.gbSpieler1.Controls.Add(this.label3);
             this.gbSpieler1.Location = new System.Drawing.Point(117, 590);
@@ -275,18 +281,18 @@
             // 
             // lblPunkteSpieler1
             // 
-            this.lblPunkteSpieler1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunkteSpieler1.Location = new System.Drawing.Point(56, 19);
+            this.lblPunkteSpieler1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunkteSpieler1.Location = new System.Drawing.Point(56, 16);
             this.lblPunkteSpieler1.Name = "lblPunkteSpieler1";
-            this.lblPunkteSpieler1.Size = new System.Drawing.Size(88, 13);
+            this.lblPunkteSpieler1.Size = new System.Drawing.Size(88, 29);
             this.lblPunkteSpieler1.TabIndex = 18;
             this.lblPunkteSpieler1.Text = "-";
-            this.lblPunkteSpieler1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPunkteSpieler1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 19);
+            this.label3.Location = new System.Drawing.Point(6, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 17;
@@ -294,29 +300,31 @@
             // 
             // gbSpieler2
             // 
+            this.gbSpieler2.Controls.Add(this.label4);
+            this.gbSpieler2.Controls.Add(this.lbInventarSpieler2);
             this.gbSpieler2.Controls.Add(this.lblPunkteSpieler2);
             this.gbSpieler2.Controls.Add(this.label1);
             this.gbSpieler2.Location = new System.Drawing.Point(279, 590);
             this.gbSpieler2.Name = "gbSpieler2";
-            this.gbSpieler2.Size = new System.Drawing.Size(156, 123);
+            this.gbSpieler2.Size = new System.Drawing.Size(150, 123);
             this.gbSpieler2.TabIndex = 20;
             this.gbSpieler2.TabStop = false;
             this.gbSpieler2.Text = "Spieler 2";
             // 
             // lblPunkteSpieler2
             // 
-            this.lblPunkteSpieler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunkteSpieler2.Location = new System.Drawing.Point(56, 19);
+            this.lblPunkteSpieler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunkteSpieler2.Location = new System.Drawing.Point(56, 16);
             this.lblPunkteSpieler2.Name = "lblPunkteSpieler2";
-            this.lblPunkteSpieler2.Size = new System.Drawing.Size(94, 13);
+            this.lblPunkteSpieler2.Size = new System.Drawing.Size(88, 29);
             this.lblPunkteSpieler2.TabIndex = 19;
             this.lblPunkteSpieler2.Text = "-";
-            this.lblPunkteSpieler2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPunkteSpieler2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Location = new System.Drawing.Point(6, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 17;
@@ -355,6 +363,42 @@
             this.pbSpielende.Size = new System.Drawing.Size(819, 6);
             this.pbSpielende.Step = 1;
             this.pbSpielende.TabIndex = 23;
+            // 
+            // lbInventarSpieler1
+            // 
+            this.lbInventarSpieler1.FormattingEnabled = true;
+            this.lbInventarSpieler1.Location = new System.Drawing.Point(59, 48);
+            this.lbInventarSpieler1.Name = "lbInventarSpieler1";
+            this.lbInventarSpieler1.Size = new System.Drawing.Size(85, 69);
+            this.lbInventarSpieler1.TabIndex = 19;
+            this.lbInventarSpieler1.TabStop = false;
+            // 
+            // lbInventarSpieler2
+            // 
+            this.lbInventarSpieler2.FormattingEnabled = true;
+            this.lbInventarSpieler2.Location = new System.Drawing.Point(59, 48);
+            this.lbInventarSpieler2.Name = "lbInventarSpieler2";
+            this.lbInventarSpieler2.Size = new System.Drawing.Size(85, 69);
+            this.lbInventarSpieler2.TabIndex = 20;
+            this.lbInventarSpieler2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Inventar:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Inventar:";
             // 
             // Hauptfenster
             // 
@@ -433,6 +477,10 @@
         private System.Windows.Forms.Button btnSteuerLinks;
         private System.Windows.Forms.Button btnSteuerRechts;
         private System.Windows.Forms.ProgressBar pbSpielende;
+        private System.Windows.Forms.ListBox lbInventarSpieler1;
+        private System.Windows.Forms.ListBox lbInventarSpieler2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }
 

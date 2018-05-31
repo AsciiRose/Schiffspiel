@@ -63,6 +63,16 @@ namespace grundspiel {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anker {
+            get {
+                object obj = ResourceManager.GetObject("anker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hindernis {
             get {
                 object obj = ResourceManager.GetObject("hindernis", resourceCulture);
@@ -83,9 +93,29 @@ namespace grundspiel {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kiste {
+            get {
+                object obj = ResourceManager.GetObject("kiste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Map002 {
             get {
                 object obj = ResourceManager.GetObject("Map002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mast {
+            get {
+                object obj = ResourceManager.GetObject("mast", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,16 @@ namespace grundspiel {
         internal static System.Drawing.Bitmap player2 {
             get {
                 object obj = ResourceManager.GetObject("player2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zaun {
+            get {
+                object obj = ResourceManager.GetObject("zaun", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

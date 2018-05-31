@@ -45,23 +45,37 @@ namespace grundspiel
             pbSpielende.Value = 0;
             pbSpielende.Maximum = spiel.getSpielende();
 
-            // Beispiel: Hindernis
-            spiel.addFeldObjekt(new Hindernis("Mast", spiel.getZufallFreiesFeld(), false, 0, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Anker", spiel.getZufallFreiesFeld(), true, 3, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Mast", spiel.getZufallFreiesFeld(), false, 0, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Anker", spiel.getZufallFreiesFeld(), true, 3, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
-            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.hindernis));
+            // Beispiel: Hindernis fest
+            spiel.addFeldObjekt(new Hindernis("Mast", 1 * spiel.getBreite() / 4, spiel.getHoehe() / 2, false, 0, Resource1.mast));
+            spiel.addFeldObjekt(new Hindernis("Mast", 2 * spiel.getBreite() / 4, spiel.getHoehe() / 2, false, 0, Resource1.mast));
+            spiel.addFeldObjekt(new Hindernis("Mast", 3 * spiel.getBreite() / 4, spiel.getHoehe() / 2, false, 0, Resource1.mast));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+            spiel.addFeldObjekt(new Hindernis("Zaun", spiel.getZufallFreiesFeld(), false, 0, Resource1.zaun));
+
+            // Beispiel: Hindernis lose
+            spiel.addFeldObjekt(new Hindernis("Anker", spiel.getZufallFreiesFeld(), true, 3, Resource1.anker));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
+            spiel.addFeldObjekt(new Hindernis("Truhe", spiel.getZufallFreiesFeld(), true, 1, Resource1.kiste));
 
             // Beispiel: Item
             spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
             spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
+            spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
             spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
-            spiel.addFeldObjekt(new Item("Steuer", spiel.getZufallFreiesFeld(), 100, Resource1.item));
+            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
+            spiel.addFeldObjekt(new Item("Steuer", spiel.getZufallFreiesFeld(), 15, Resource1.item));
 
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 1), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler2(), new Point(-1, spiel.getHoehe()-2), Resource1.player2, neuesSpielForm.getFarbeSpieler2()));
@@ -216,6 +230,20 @@ namespace grundspiel
             lblSpieler.ForeColor = spiel.getSpielerAktivColor();
             lblPunkteSpieler1.Text = spiel.getSpieler1Punkte().ToString();
             lblPunkteSpieler2.Text = spiel.getSpieler2Punkte().ToString();
+
+            lbInventarSpieler1.Items.Clear();
+            foreach (string item in spiel.getSpieler1Inventar())
+            {
+                lbInventarSpieler1.Items.Add(item);
+            }
+
+            lbInventarSpieler2.Items.Clear();
+            foreach (string item in spiel.getSpieler2Inventar())
+            {
+                lbInventarSpieler2.Items.Add(item);
+            }
+
+
             List<string> consoleOutLines = spiel.getOutputLines();
             foreach (string line in consoleOutLines)
                 printToConsole(line);

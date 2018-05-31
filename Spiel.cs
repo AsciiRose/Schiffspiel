@@ -118,6 +118,16 @@ namespace grundspiel
             return spieler2.getPunkte();
         }
 
+        public List<string> getSpieler1Inventar()
+        {
+            return spieler1.getInventarListe();
+        }
+
+        public List<string> getSpieler2Inventar()
+        {
+            return spieler2.getInventarListe();
+        }
+
         public void spielerLaufen(Point richtungsVektor)
         {
             Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);

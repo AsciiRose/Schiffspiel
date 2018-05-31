@@ -62,5 +62,14 @@ namespace grundspiel
 
             return false;
         }
+
+        public List<string> getInventarListe()
+        {
+            List<string> inventarListe = new List<string>();
+            foreach (Item item in inventar)
+                inventarListe.Add(item.getBezeichnung());
+
+            return inventarListe;
+        }
     }
 }
