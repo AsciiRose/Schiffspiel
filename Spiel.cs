@@ -266,24 +266,32 @@ namespace grundspiel
             Point hindernisPosition = new Point(hindernis.getPosition().X, hindernis.getPosition().Y);
             hindernisPosition.Offset(richtungsVektor);
 
+            if (canMoveTo(hindernisPosition))
+            {
+                hindernis.verschiebeUm(richtungsVektor);
+                bewegeSpielerAktiv(richtungsVektor);
+            }
+            else if (!isPosInFeld(hindernisPosition))
+            {
+                hindernisueberBoardWerfen(hindernis);
+                bewegeSpielerAktiv(richtungsVektor);
+            }
+        }
+
+        private void hindernisueberBoardWerfen(Hindernis hindernis)
+        {
             int gewicht = hindernis.getGewicht();
-            int punkte = gewicht * 3;
+            int punkte = gewicht * 5;
 
             if (schritte - gewicht > 0)
             {
-                if (canMoveTo(hindernisPosition))
-                {
-                    hindernis.verschiebeUm(richtungsVektor);
-                    schritte -= gewicht;
-                    spielerAktiv.addPunkte(punkte);
-                    output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, verschiebt " + hindernis.getBezeichnung() + " und erhält " + punkte + " Punkte.");
-
-                    bewegeSpielerAktiv(richtungsVektor);
-                }
+                schritte -= gewicht;
+                feldObjekte.Remove(hindernis);
+                spielerAktiv.addPunkte(punkte);
+                output.Add(spielerAktiv.getBezeichnung() + " nimmt alle Kraft zusammen, wirft " + hindernis.getBezeichnung() + " über Board und erhält " + punkte + " Punkte.");
             }
             else
-                output.Add(hindernis.getBezeichnung() + " ist zu schwer. Dir fehlen " + (gewicht - schritte + 1) + " Bewegungspunkte.");
-
+                output.Add(hindernis.getBezeichnung() + " ist zu schwer, um ihn über Board zu werden. Dir fehlen " + (gewicht - schritte + 1) + " Bewegungspunkte.");
         }
 
         private void sammleItem(Spieler spieler, Item item)
