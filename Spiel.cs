@@ -15,13 +15,14 @@ namespace grundspiel
         private int hoeheFeld;
         private int schritte;
         private int countDownWelle;
+        private int spielende;
         private int durationWelle;
         private bool darfWuerfeln;
         private bool darfSteuern;
         private List<Objekt> feldObjekte;
         private List<string> output;
 
-        public Spiel(int breite, int hoehe)
+        public Spiel(int breite, int hoehe, int runden)
         {
             this.breiteFeld = breite;
             this.hoeheFeld = hoehe;
@@ -29,9 +30,10 @@ namespace grundspiel
             output = new List<string>();
 
             rand = new Random();
+            spielende = 2 * runden;
 
-            countDownWelle = rand.Next(15, 25);
-            durationWelle = rand.Next(8, 12);
+            countDownWelle = rand.Next(1, 1+ spielende/2);
+            durationWelle = rand.Next(0, 2+ spielende/8);
             spielerAktiv = null;
         }
 
@@ -50,8 +52,8 @@ namespace grundspiel
             else if (countDownWelle == 0 - durationWelle)
             {
                 spielfeldKippen(new Point(1, 0));
-                countDownWelle = rand.Next(15, 25);
-                durationWelle = rand.Next(8, 12);
+                countDownWelle = rand.Next(1, 1+ spielende / 4);
+                durationWelle = rand.Next(0, 2+ spielende / 16);
                 output.Add(" >> Das Schiff fährt von der Welle ab. Geschafft!");
             }
             else if (countDownWelle == 3)
@@ -69,6 +71,20 @@ namespace grundspiel
         public int getBreite()
         {
             return breiteFeld;
+        }
+
+        public int getSpielende()
+        {
+            return spielende;
+        }
+        public String getSpieler1Name()
+        {
+            return spieler1.getBezeichnung();
+        }
+
+        public String getSpieler2Name()
+        {
+            return spieler2.getBezeichnung();
         }
 
         public int getHoehe()

@@ -56,6 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSteuerLinks = new System.Windows.Forms.Button();
             this.btnSteuerRechts = new System.Windows.Forms.Button();
+            this.pbSpielende = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSpieler1.SuspendLayout();
@@ -149,7 +150,7 @@
             this.btnSwitchPlayer.Name = "btnSwitchPlayer";
             this.btnSwitchPlayer.Size = new System.Drawing.Size(136, 28);
             this.btnSwitchPlayer.TabIndex = 11;
-            this.btnSwitchPlayer.Text = "Runde abschließen";
+            this.btnSwitchPlayer.Text = "Zug beenden";
             this.btnSwitchPlayer.UseVisualStyleBackColor = true;
             this.btnSwitchPlayer.Click += new System.EventHandler(this.btnSwitchPlayer_Click);
             // 
@@ -346,12 +347,22 @@
             this.btnSteuerRechts.UseVisualStyleBackColor = true;
             this.btnSteuerRechts.Click += new System.EventHandler(this.btnKippeRunter_Click);
             // 
+            // pbSpielende
+            // 
+            this.pbSpielende.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pbSpielende.Location = new System.Drawing.Point(13, 566);
+            this.pbSpielende.Name = "pbSpielende";
+            this.pbSpielende.Size = new System.Drawing.Size(819, 6);
+            this.pbSpielende.Step = 1;
+            this.pbSpielende.TabIndex = 23;
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(845, 725);
+            this.Controls.Add(this.pbSpielende);
             this.Controls.Add(this.btnSteuerRechts);
             this.Controls.Add(this.btnSteuerLinks);
             this.Controls.Add(this.gbSpieler2);
@@ -421,6 +432,7 @@
         private System.Windows.Forms.Label lblPunkteSpieler2;
         private System.Windows.Forms.Button btnSteuerLinks;
         private System.Windows.Forms.Button btnSteuerRechts;
+        private System.Windows.Forms.ProgressBar pbSpielende;
     }
 }
 

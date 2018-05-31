@@ -39,8 +39,11 @@ namespace grundspiel
             if (neuesSpielForm.DialogResult != DialogResult.OK)
                 return;
 
-            spiel = new Spiel(15, 7);
+            spiel = new Spiel(15, 7, 5);
             pictureBox1.BackgroundImage = Resource1.Map002;
+            pbSpielende.Minimum = 0;
+            pbSpielende.Value = 0;
+            pbSpielende.Maximum = spiel.getSpielende();
 
             // Beispiel: Hindernis
             spiel.addFeldObjekt(new Hindernis("Mast", spiel.getZufallFreiesFeld(), false, 0, Resource1.hindernis));
@@ -117,6 +120,7 @@ namespace grundspiel
             updateLabels();
             zeichneFeld();
             setNewRoundButtons();
+            spielFortschritt();
         }
 
         private void enableButtons()
@@ -322,6 +326,57 @@ namespace grundspiel
             updateLabels();
             zeichneFeld();
             setNewRoundButtons();
+        }
+
+        private void spielFortschritt()
+        {
+            pbSpielende.PerformStep();
+
+            if (pbSpielende.Value == spiel.getSpielende())
+            {
+                String name = null;
+                String punkte = null;
+
+                if (spiel.getSpieler1Punkte() < spiel.getSpieler2Punkte())
+                {
+                    name = spiel.getSpieler2Name();
+                    punkte = spiel.getSpieler2Punkte().ToString();
+                }
+                else if (spiel.getSpieler1Punkte() > spiel.getSpieler2Punkte())
+                {
+                    name = spiel.getSpieler1Name();
+                    punkte = spiel.getSpieler1Punkte().ToString();
+                }
+
+                btnDown.Enabled = false;
+                btnUp.Enabled = false;
+                btnLeft.Enabled = false;
+                btnRight.Enabled = false;
+                btnSteuerLinks.Enabled = false;
+                btnSteuerRechts.Enabled = false;
+                btnSwitchPlayer.Enabled = false;
+                btnWuerfeln.Enabled = false;
+                lblSpieler.Text = ""; 
+
+                if (name != null && punkte != null)
+                {
+                    MessageBox.Show(
+                        name + " hat mit " + punkte + " Punkten gewonnen und konnte sich als Kapitän durchsetzen!",
+                        "Spiel zu Ende",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Unentschieden! Kein Pirat hat sich durchsetzen können.",
+                        "Spiel zu Ende",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+
+                spiel = null;
+            }
         }
     }
 }
