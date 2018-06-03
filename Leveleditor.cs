@@ -85,13 +85,13 @@ namespace grundspiel
             string bezeichnung = "";
             bool beweglich = true;
 
-            if(radioButton1.Checked == true)
+            if(rbMast.Checked == true)
             {
                 bezeichnung = "Kiste";
                 beweglich = true;
             }
 
-            if (radioButton2.Checked == true)
+            if (rbZaun.Checked == true)
             {
                 bezeichnung = "Wand";
                 beweglich = false;
