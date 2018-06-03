@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbSteuer = new System.Windows.Forms.PictureBox();
+            this.pbFernrohr = new System.Windows.Forms.PictureBox();
+            this.pbTruhe = new System.Windows.Forms.PictureBox();
+            this.pbAnker = new System.Windows.Forms.PictureBox();
+            this.pbZaun = new System.Windows.Forms.PictureBox();
+            this.pbMast = new System.Windows.Forms.PictureBox();
+            this.pbPaddel = new System.Windows.Forms.PictureBox();
+            this.rbSteuer = new System.Windows.Forms.RadioButton();
+            this.rbFernrohr = new System.Windows.Forms.RadioButton();
             this.rbPaddel = new System.Windows.Forms.RadioButton();
             this.rbTruhe = new System.Windows.Forms.RadioButton();
             this.rbAnker = new System.Windows.Forms.RadioButton();
@@ -46,25 +55,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.rbFernrohr = new System.Windows.Forms.RadioButton();
-            this.rbSteuer = new System.Windows.Forms.RadioButton();
-            this.pbPaddel = new System.Windows.Forms.PictureBox();
-            this.pbMast = new System.Windows.Forms.PictureBox();
-            this.pbZaun = new System.Windows.Forms.PictureBox();
-            this.pbAnker = new System.Windows.Forms.PictureBox();
-            this.pbTruhe = new System.Windows.Forms.PictureBox();
-            this.pbFernrohr = new System.Windows.Forms.PictureBox();
-            this.pbSteuer = new System.Windows.Forms.PictureBox();
+            this.btnLeeren = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSteuer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFernrohr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTruhe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMast)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTruhe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFernrohr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSteuer)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,6 +88,98 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 1;
+            // 
+            // pbSteuer
+            // 
+            this.pbSteuer.BackgroundImage = global::grundspiel.Resource1.item;
+            this.pbSteuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbSteuer.Location = new System.Drawing.Point(710, 19);
+            this.pbSteuer.Name = "pbSteuer";
+            this.pbSteuer.Size = new System.Drawing.Size(40, 40);
+            this.pbSteuer.TabIndex = 13;
+            this.pbSteuer.TabStop = false;
+            // 
+            // pbFernrohr
+            // 
+            this.pbFernrohr.BackgroundImage = global::grundspiel.Resource1.item;
+            this.pbFernrohr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbFernrohr.Location = new System.Drawing.Point(591, 23);
+            this.pbFernrohr.Name = "pbFernrohr";
+            this.pbFernrohr.Size = new System.Drawing.Size(40, 40);
+            this.pbFernrohr.TabIndex = 12;
+            this.pbFernrohr.TabStop = false;
+            // 
+            // pbTruhe
+            // 
+            this.pbTruhe.BackgroundImage = global::grundspiel.Resource1.kiste;
+            this.pbTruhe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbTruhe.Location = new System.Drawing.Point(375, 22);
+            this.pbTruhe.Name = "pbTruhe";
+            this.pbTruhe.Size = new System.Drawing.Size(40, 40);
+            this.pbTruhe.TabIndex = 11;
+            this.pbTruhe.TabStop = false;
+            // 
+            // pbAnker
+            // 
+            this.pbAnker.BackgroundImage = global::grundspiel.Resource1.anker;
+            this.pbAnker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbAnker.Location = new System.Drawing.Point(263, 21);
+            this.pbAnker.Name = "pbAnker";
+            this.pbAnker.Size = new System.Drawing.Size(40, 40);
+            this.pbAnker.TabIndex = 10;
+            this.pbAnker.TabStop = false;
+            // 
+            // pbZaun
+            // 
+            this.pbZaun.BackgroundImage = global::grundspiel.Resource1.zaun;
+            this.pbZaun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbZaun.Location = new System.Drawing.Point(137, 22);
+            this.pbZaun.Name = "pbZaun";
+            this.pbZaun.Size = new System.Drawing.Size(40, 40);
+            this.pbZaun.TabIndex = 9;
+            this.pbZaun.TabStop = false;
+            // 
+            // pbMast
+            // 
+            this.pbMast.BackgroundImage = global::grundspiel.Resource1.mast;
+            this.pbMast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbMast.Location = new System.Drawing.Point(23, 21);
+            this.pbMast.Name = "pbMast";
+            this.pbMast.Size = new System.Drawing.Size(40, 40);
+            this.pbMast.TabIndex = 8;
+            this.pbMast.TabStop = false;
+            // 
+            // pbPaddel
+            // 
+            this.pbPaddel.BackgroundImage = global::grundspiel.Resource1.item;
+            this.pbPaddel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPaddel.Location = new System.Drawing.Point(479, 19);
+            this.pbPaddel.Name = "pbPaddel";
+            this.pbPaddel.Size = new System.Drawing.Size(40, 40);
+            this.pbPaddel.TabIndex = 7;
+            this.pbPaddel.TabStop = false;
+            // 
+            // rbSteuer
+            // 
+            this.rbSteuer.AutoSize = true;
+            this.rbSteuer.Location = new System.Drawing.Point(703, 67);
+            this.rbSteuer.Name = "rbSteuer";
+            this.rbSteuer.Size = new System.Drawing.Size(56, 17);
+            this.rbSteuer.TabIndex = 6;
+            this.rbSteuer.TabStop = true;
+            this.rbSteuer.Text = "Steuer";
+            this.rbSteuer.UseVisualStyleBackColor = true;
+            // 
+            // rbFernrohr
+            // 
+            this.rbFernrohr.AutoSize = true;
+            this.rbFernrohr.Location = new System.Drawing.Point(580, 67);
+            this.rbFernrohr.Name = "rbFernrohr";
+            this.rbFernrohr.Size = new System.Drawing.Size(64, 17);
+            this.rbFernrohr.TabIndex = 5;
+            this.rbFernrohr.TabStop = true;
+            this.rbFernrohr.Text = "Fernrohr";
+            this.rbFernrohr.UseVisualStyleBackColor = true;
             // 
             // rbPaddel
             // 
@@ -246,103 +339,22 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "label4";
             // 
-            // rbFernrohr
+            // btnLeeren
             // 
-            this.rbFernrohr.AutoSize = true;
-            this.rbFernrohr.Location = new System.Drawing.Point(580, 67);
-            this.rbFernrohr.Name = "rbFernrohr";
-            this.rbFernrohr.Size = new System.Drawing.Size(64, 17);
-            this.rbFernrohr.TabIndex = 5;
-            this.rbFernrohr.TabStop = true;
-            this.rbFernrohr.Text = "Fernrohr";
-            this.rbFernrohr.UseVisualStyleBackColor = true;
-            // 
-            // rbSteuer
-            // 
-            this.rbSteuer.AutoSize = true;
-            this.rbSteuer.Location = new System.Drawing.Point(703, 67);
-            this.rbSteuer.Name = "rbSteuer";
-            this.rbSteuer.Size = new System.Drawing.Size(56, 17);
-            this.rbSteuer.TabIndex = 6;
-            this.rbSteuer.TabStop = true;
-            this.rbSteuer.Text = "Steuer";
-            this.rbSteuer.UseVisualStyleBackColor = true;
-            // 
-            // pbPaddel
-            // 
-            this.pbPaddel.BackgroundImage = global::grundspiel.Resource1.item;
-            this.pbPaddel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPaddel.Location = new System.Drawing.Point(479, 19);
-            this.pbPaddel.Name = "pbPaddel";
-            this.pbPaddel.Size = new System.Drawing.Size(40, 40);
-            this.pbPaddel.TabIndex = 7;
-            this.pbPaddel.TabStop = false;
-            // 
-            // pbMast
-            // 
-            this.pbMast.BackgroundImage = global::grundspiel.Resource1.mast;
-            this.pbMast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbMast.Location = new System.Drawing.Point(23, 21);
-            this.pbMast.Name = "pbMast";
-            this.pbMast.Size = new System.Drawing.Size(40, 40);
-            this.pbMast.TabIndex = 8;
-            this.pbMast.TabStop = false;
-            // 
-            // pbZaun
-            // 
-            this.pbZaun.BackgroundImage = global::grundspiel.Resource1.zaun;
-            this.pbZaun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbZaun.Location = new System.Drawing.Point(137, 22);
-            this.pbZaun.Name = "pbZaun";
-            this.pbZaun.Size = new System.Drawing.Size(40, 40);
-            this.pbZaun.TabIndex = 9;
-            this.pbZaun.TabStop = false;
-            // 
-            // pbAnker
-            // 
-            this.pbAnker.BackgroundImage = global::grundspiel.Resource1.anker;
-            this.pbAnker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAnker.Location = new System.Drawing.Point(263, 21);
-            this.pbAnker.Name = "pbAnker";
-            this.pbAnker.Size = new System.Drawing.Size(40, 40);
-            this.pbAnker.TabIndex = 10;
-            this.pbAnker.TabStop = false;
-            // 
-            // pbTruhe
-            // 
-            this.pbTruhe.BackgroundImage = global::grundspiel.Resource1.kiste;
-            this.pbTruhe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbTruhe.Location = new System.Drawing.Point(375, 22);
-            this.pbTruhe.Name = "pbTruhe";
-            this.pbTruhe.Size = new System.Drawing.Size(40, 40);
-            this.pbTruhe.TabIndex = 11;
-            this.pbTruhe.TabStop = false;
-            // 
-            // pbFernrohr
-            // 
-            this.pbFernrohr.BackgroundImage = global::grundspiel.Resource1.item;
-            this.pbFernrohr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbFernrohr.Location = new System.Drawing.Point(591, 23);
-            this.pbFernrohr.Name = "pbFernrohr";
-            this.pbFernrohr.Size = new System.Drawing.Size(40, 40);
-            this.pbFernrohr.TabIndex = 12;
-            this.pbFernrohr.TabStop = false;
-            // 
-            // pbSteuer
-            // 
-            this.pbSteuer.BackgroundImage = global::grundspiel.Resource1.item;
-            this.pbSteuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbSteuer.Location = new System.Drawing.Point(710, 19);
-            this.pbSteuer.Name = "pbSteuer";
-            this.pbSteuer.Size = new System.Drawing.Size(40, 40);
-            this.pbSteuer.TabIndex = 13;
-            this.pbSteuer.TabStop = false;
+            this.btnLeeren.Location = new System.Drawing.Point(466, 690);
+            this.btnLeeren.Name = "btnLeeren";
+            this.btnLeeren.Size = new System.Drawing.Size(75, 23);
+            this.btnLeeren.TabIndex = 8;
+            this.btnLeeren.Text = "Feld leeren";
+            this.btnLeeren.UseVisualStyleBackColor = true;
+            this.btnLeeren.Click += new System.EventHandler(this.btnLeeren_Click);
             // 
             // Leveleditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 725);
+            this.Controls.Add(this.btnLeeren);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnErstellen);
@@ -357,16 +369,16 @@
             this.Load += new System.EventHandler(this.Leveleditor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSteuer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFernrohr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTruhe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMast)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTruhe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFernrohr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSteuer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +413,6 @@
         private System.Windows.Forms.PictureBox pbPaddel;
         private System.Windows.Forms.RadioButton rbSteuer;
         private System.Windows.Forms.RadioButton rbFernrohr;
+        private System.Windows.Forms.Button btnLeeren;
     }
 }

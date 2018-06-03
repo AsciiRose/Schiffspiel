@@ -303,8 +303,14 @@ namespace grundspiel
 
         private void startEditor()
         {
-            Leveleditor editor = new Leveleditor(this);
+            setupNewGame();
+            Leveleditor editor = new Leveleditor();
             editor.ShowDialog();
+
+            if (editor.DialogResult != DialogResult.OK)
+                return;
+
+            spiel.setFeldObjekte(editor.getHindernisse());
         }
 
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)

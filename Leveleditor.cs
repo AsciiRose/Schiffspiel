@@ -11,15 +11,14 @@ namespace grundspiel
 {
     public partial class Leveleditor : Form
     {
-        private Hauptfenster f1;
-        int[] groesse = { 7, 15 };
-        List<Hindernis> hindernisse = new List<Hindernis>();
+        private int[] groesse = { 7, 15 };
+        private List<Objekt> hindernisse = new List<Objekt>();
         
-        public Leveleditor(Hauptfenster aufrufer)
+        public Leveleditor()
         {
-            f1 = aufrufer;
 
             InitializeComponent();
+            zeichneBlancoFeld();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace grundspiel
             zeile = (int) Math.Floor(y / 280 * groesse[0]);
             spalte = (int)Math.Floor(x / 600 * groesse[1]);
 
-            int[] feld = new int[] { zeile, spalte };
+            int[] feld = new int[] { spalte, zeile };
 
             label3.Text = Convert.ToString(Math.Floor(x / 600 * groesse[1]));
             label4.Text = Convert.ToString(Math.Floor(y / 280 * groesse[0]));
@@ -49,7 +48,7 @@ namespace grundspiel
 
         private void btnErstellen_Click(object sender, EventArgs e)
         {
-            zeichneBlancoFeld();
+            DialogResult = DialogResult.OK;
         }
 
         private void kleinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,36 +69,69 @@ namespace grundspiel
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            Hindernis hinzu = hindernisPlazieren(e.Location.X, e.Location.Y);
+            int[] klickPos = feldErmitteln(e.Location.X, e.Location.Y);
+            if (klickPos[0] >= 0 && klickPos[0] < 15 && klickPos[1] >= 0 && klickPos[1] < 7)
+            {
+                Objekt hinzu = hindernisPlazieren(e.Location.X, e.Location.Y);
 
-            hindernisse.Add(hinzu);
+                hindernisse.Add(hinzu);
+                zeichneBlancoFeld();
+            }
 
-            
+
+
         }
 
-        private Hindernis hindernisPlazieren(double x, double y)
+        private Objekt hindernisPlazieren(double x, double y)
         {
             Hindernis editor_hindernis;
+            Item editor_item;
             int[] posFeld = feldErmitteln(x, y);
 
-            string bezeichnung = "";
-            bool beweglich = true;
 
             if(rbMast.Checked == true)
             {
-                bezeichnung = "Kiste";
-                beweglich = true;
+                editor_hindernis = new Hindernis("Mast", posFeld[0], posFeld[1], false, 0, Resource1.mast);
+                return editor_hindernis;
             }
 
             if (rbZaun.Checked == true)
             {
-                bezeichnung = "Wand";
-                beweglich = false;
+                editor_hindernis = new Hindernis("Zaun", posFeld[0], posFeld[1], false, 0, Resource1.zaun);
+                return editor_hindernis;
             }
 
-            editor_hindernis = new Hindernis(bezeichnung, posFeld[1], posFeld[0], beweglich, 1, Resource1.hindernis);
+            if (rbAnker.Checked == true)
+            {
+                editor_hindernis = new Hindernis("Anker", posFeld[0], posFeld[1], true, 3, Resource1.anker);
+                return editor_hindernis;
+            }
 
-            return editor_hindernis;
+            if (rbTruhe.Checked == true)
+            {
+                editor_hindernis = new Hindernis("Truhe", posFeld[0], posFeld[1], true, 1, Resource1.kiste);
+                return editor_hindernis;
+            }
+
+            if (rbPaddel.Checked == true)
+            {
+                editor_item = new Item("Paddel", posFeld[0], posFeld[1], 10, Resource1.item);
+                return editor_item;
+            }
+
+            if (rbFernrohr.Checked == true)
+            {
+                editor_item = new Item("Fernrohr", posFeld[0], posFeld[1], 20, Resource1.item);
+                return editor_item;
+            }
+
+            if (rbSteuer.Checked == true)
+            {
+                editor_item = new Item("Steuer", posFeld[0], posFeld[1], 15, Resource1.item);
+                return editor_item;
+            }
+
+            return null;
         }
 
         private void zeichneBlancoFeld()
@@ -108,7 +140,9 @@ namespace grundspiel
             int hoehe = 7;
             int zellGroeße = 600 / breite;
             int randSpielfeld = 70;
-            
+            int randZelle = 25 - breite * 2;
+            if (randZelle < 0)
+                randZelle = 0;
 
             Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
@@ -122,8 +156,17 @@ namespace grundspiel
                     g.DrawRectangle(pen, randSpielfeld + zellGroeße * i, randSpielfeld + zellGroeße * j, zellGroeße, zellGroeße);
             }
 
-           
-            
+            Bitmap objektBild;
+            foreach (Objekt objekt in hindernisse)
+            {
+                objektBild = objekt.getBild();
+
+                g.DrawImage(
+                    objektBild,
+                    randSpielfeld + randZelle + zellGroeße * objekt.getPosition().X,
+                    randSpielfeld + randZelle + zellGroeße * objekt.getPosition().Y,
+                    zellGroeße - randZelle * 2, zellGroeße - randZelle * 2);
+            }
 
             pictureBox1.Image = newImg;
             pictureBox1.BackgroundImage = Resource1.Map002;
@@ -132,6 +175,17 @@ namespace grundspiel
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLeeren_Click(object sender, EventArgs e)
+        {
+            hindernisse.Clear();
+            zeichneBlancoFeld();
+        }
+
+        public List<Objekt> getHindernisse()
+        {
+            return hindernisse;
         }
     }
 }

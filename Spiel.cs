@@ -375,6 +375,11 @@ namespace grundspiel
             return feldObjekte;
         }
 
+        public void setFeldObjekte(List<Objekt> objListe)
+        {
+            feldObjekte = objListe;
+        }
+
         public void addSpieler(Spieler spieler)
         {
             if (!isFeldBelegt(spieler.getPosition()))
