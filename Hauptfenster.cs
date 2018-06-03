@@ -311,6 +311,7 @@ namespace grundspiel
                 return;
 
             spiel.setFeldObjekte(editor.getHindernisse());
+            zeichneFeld();
         }
 
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)

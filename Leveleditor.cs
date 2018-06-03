@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace grundspiel
 {
-    public partial class Leveleditor : Form
+    internal partial class Leveleditor : Form
     {
         private int[] groesse = { 7, 15 };
         private List<Objekt> hindernisse = new List<Objekt>();
