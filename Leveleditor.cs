@@ -12,7 +12,7 @@ namespace grundspiel
     public partial class Leveleditor : Form
     {
         private Hauptfenster f1;
-        int[] groesse;
+        int[] groesse = { 7, 15 };
         List<Hindernis> hindernisse = new List<Hindernis>();
         
         public Leveleditor(Hauptfenster aufrufer)
@@ -24,8 +24,6 @@ namespace grundspiel
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           // feldErmitteln();
-
         }
 
         private int[] feldErmitteln(double x, double y)
@@ -33,63 +31,41 @@ namespace grundspiel
             int zeile = 0;
             int spalte = 0;
 
-            zeile = (int) Math.Floor(x / pictureBox1.Width * groesse[1]);
-            spalte = (int)Math.Floor(x / pictureBox1.Width * groesse[1]);
+            x = 0 + (x - 70) * ((pictureBox1.Width) / (600));
+            y = 0 + (y - 70) * ((pictureBox1.Height) / (7*40));
+
+            zeile = (int) Math.Floor(y / 280 * groesse[0]);
+            spalte = (int)Math.Floor(x / 600 * groesse[1]);
 
             int[] feld = new int[] { zeile, spalte };
 
-            label3.Text = Convert.ToString(Math.Floor(x / pictureBox1.Width * groesse[1]));
-            label4.Text = Convert.ToString(Math.Floor(y / pictureBox1.Height * groesse[0]));
+            label3.Text = Convert.ToString(Math.Floor(x / 600 * groesse[1]));
+            label4.Text = Convert.ToString(Math.Floor(y / 280 * groesse[0]));
 
             return feld;
         }
 
-        private void renderFeldEditor(int hoehe, int breite)
-        {
-            Bitmap editorImg = new Bitmap(breite*30+1, hoehe*30+1);
-
-            Graphics g = Graphics.FromImage(editorImg);
-
-            Pen pen = new Pen(Color.Black, 1);
-
-            for (int i = 0; i < breite; i++)
-            {
-                for (int j = 0; j < hoehe; j++)
-                    g.DrawRectangle(pen,30 * i,30 * j, 30, 30);
-            }
-
-            pictureBox1.Size = editorImg.Size;
-            pictureBox1.BackgroundImage = Resource1.Map002;
-                
-            pictureBox1.Image = editorImg;
-        }
+        
 
         private void btnErstellen_Click(object sender, EventArgs e)
         {
-            
+            zeichneBlancoFeld();
         }
 
         private void kleinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            groesse = new int[] {5, 8};
-            renderFeldEditor(5, 8);
         }
 
         private void mittelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            groesse = new int[] { 7, 11 };
-            renderFeldEditor(7, 11);
         }
 
         private void großToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            groesse = new int[] { 10, 15 };
-            renderFeldEditor(10, 15);
         }
 
         private void Leveleditor_Load(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -126,6 +102,36 @@ namespace grundspiel
             return editor_hindernis;
         }
 
-        
+        private void zeichneBlancoFeld()
+        {
+            int breite = 15;
+            int hoehe = 7;
+            int zellGroeße = 600 / breite;
+            int randSpielfeld = 70;
+            
+
+            Bitmap newImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+            Graphics g = Graphics.FromImage(newImg);
+            Pen pen = new Pen(Color.Black, 2);
+            
+
+            for (int i = 0; i < breite; i++)
+            {
+                for (int j = 0; j < hoehe; j++)
+                    g.DrawRectangle(pen, randSpielfeld + zellGroeße * i, randSpielfeld + zellGroeße * j, zellGroeße, zellGroeße);
+            }
+
+           
+            
+
+            pictureBox1.Image = newImg;
+            pictureBox1.BackgroundImage = Resource1.Map002;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
