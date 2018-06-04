@@ -143,6 +143,16 @@ namespace grundspiel {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wasser {
+            get {
+                object obj = ResourceManager.GetObject("wasser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap zaun {
             get {
                 object obj = ResourceManager.GetObject("zaun", resourceCulture);

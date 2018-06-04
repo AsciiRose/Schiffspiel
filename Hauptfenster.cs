@@ -40,7 +40,7 @@ namespace grundspiel
                 return;
 
             spiel = new Spiel(15, 7, 5);
-            pictureBox1.BackgroundImage = Resource1.Map002;
+            pictureBox1.BackgroundImage = Resource1.wasser;
             pbSpielende.Minimum = 0;
             pbSpielende.Value = 0;
             pbSpielende.Maximum = spiel.getSpielende();
@@ -92,6 +92,7 @@ namespace grundspiel
             enableButtons();
             setNewRoundButtons();
             zeichneFeld();
+            pictureBox1.Show();
         }
 
         private void setNewRoundButtons()
@@ -264,6 +265,8 @@ namespace grundspiel
             Pen pen = new Pen(Color.Black, 2);
             SolidBrush spieler1pinsel = new SolidBrush(spiel.getSpieler1Color());
             SolidBrush spieler2pinsel = new SolidBrush(spiel.getSpieler2Color());
+
+            g.DrawImage(Resource1.Map002, 0, 0, pictureBox1.Width, pictureBox1.Height);
 
             for (int i = 0; i < spiel.getBreite(); i++)
             {
