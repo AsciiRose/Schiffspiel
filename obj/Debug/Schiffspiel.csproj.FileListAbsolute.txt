@@ -1,0 +1,15 @@
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\bin\Debug\Schiffspiel.exe.config
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\bin\Debug\Schiffspiel.exe
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\bin\Debug\Schiffspiel.pdb
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\bin\Debug\Interop.WMPLib.dll
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.csprojResolveAssemblyReference.cache
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Interop.WMPLib.dll
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.csproj.ResolveComReference.cache
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.Properties.Resources.resources
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.csproj.GenerateResource.cache
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.csproj.CoreCompileInputs.cache
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.exe
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.pdb
+C:\Users\MatthesA\source\repos\Schiffspiel\Schiffspiel\obj\Debug\Schiffspiel.Startseite.resources

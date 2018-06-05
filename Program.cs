@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace grundspiel
+namespace Schiffspiel
 {
     static class Program
     {
@@ -15,7 +16,7 @@ namespace grundspiel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Hauptfenster());
+            Application.Run(new Startseite());
         }
     }
 }
