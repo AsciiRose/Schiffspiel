@@ -43,18 +43,8 @@
             this.rbAnker = new System.Windows.Forms.RadioButton();
             this.rbZaun = new System.Windows.Forms.RadioButton();
             this.rbMast = new System.Windows.Forms.RadioButton();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.größeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kleinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mittelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.großToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.szenerieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.titanicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.piratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnErstellen = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnLeeren = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSteuer)).BeginInit();
@@ -64,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,69 +226,6 @@
             this.rbMast.Text = "Mast";
             this.rbMast.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.größeToolStripMenuItem,
-            this.szenerieToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(845, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // größeToolStripMenuItem
-            // 
-            this.größeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kleinToolStripMenuItem,
-            this.mittelToolStripMenuItem,
-            this.großToolStripMenuItem});
-            this.größeToolStripMenuItem.Name = "größeToolStripMenuItem";
-            this.größeToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.größeToolStripMenuItem.Text = "Größe";
-            // 
-            // kleinToolStripMenuItem
-            // 
-            this.kleinToolStripMenuItem.Name = "kleinToolStripMenuItem";
-            this.kleinToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.kleinToolStripMenuItem.Text = "Klein";
-            this.kleinToolStripMenuItem.Click += new System.EventHandler(this.kleinToolStripMenuItem_Click);
-            // 
-            // mittelToolStripMenuItem
-            // 
-            this.mittelToolStripMenuItem.Name = "mittelToolStripMenuItem";
-            this.mittelToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.mittelToolStripMenuItem.Text = "Mittel";
-            this.mittelToolStripMenuItem.Click += new System.EventHandler(this.mittelToolStripMenuItem_Click);
-            // 
-            // großToolStripMenuItem
-            // 
-            this.großToolStripMenuItem.Name = "großToolStripMenuItem";
-            this.großToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.großToolStripMenuItem.Text = "Groß";
-            this.großToolStripMenuItem.Click += new System.EventHandler(this.großToolStripMenuItem_Click);
-            // 
-            // szenerieToolStripMenuItem
-            // 
-            this.szenerieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.titanicToolStripMenuItem,
-            this.piratToolStripMenuItem});
-            this.szenerieToolStripMenuItem.Name = "szenerieToolStripMenuItem";
-            this.szenerieToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.szenerieToolStripMenuItem.Text = "Szenerie";
-            // 
-            // titanicToolStripMenuItem
-            // 
-            this.titanicToolStripMenuItem.Name = "titanicToolStripMenuItem";
-            this.titanicToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.titanicToolStripMenuItem.Text = "Titanic";
-            // 
-            // piratToolStripMenuItem
-            // 
-            this.piratToolStripMenuItem.Name = "piratToolStripMenuItem";
-            this.piratToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.piratToolStripMenuItem.Text = "Pirat";
-            // 
             // btnErstellen
             // 
             this.btnErstellen.Location = new System.Drawing.Point(366, 690);
@@ -321,24 +247,6 @@
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(232, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(299, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
-            // 
             // btnLeeren
             // 
             this.btnLeeren.Location = new System.Drawing.Point(466, 690);
@@ -355,14 +263,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 725);
             this.Controls.Add(this.btnLeeren);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnErstellen);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Leveleditor";
             this.Text = "Leveleditor";
@@ -376,11 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbZaun)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaddel)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -393,17 +294,7 @@
         private System.Windows.Forms.RadioButton rbAnker;
         private System.Windows.Forms.RadioButton rbZaun;
         private System.Windows.Forms.RadioButton rbMast;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button btnErstellen;
-        private System.Windows.Forms.ToolStripMenuItem größeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kleinToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mittelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem großToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem szenerieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem titanicToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem piratToolStripMenuItem;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pbSteuer;
         private System.Windows.Forms.PictureBox pbFernrohr;
         private System.Windows.Forms.PictureBox pbTruhe;

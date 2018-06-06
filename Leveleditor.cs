@@ -38,8 +38,6 @@ namespace grundspiel
 
             int[] feld = new int[] { spalte, zeile };
 
-            label3.Text = Convert.ToString(Math.Floor(x / 600 * groesse[1]));
-            label4.Text = Convert.ToString(Math.Floor(y / 280 * groesse[0]));
 
             return feld;
         }

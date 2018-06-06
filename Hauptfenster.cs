@@ -309,9 +309,10 @@ namespace grundspiel
 
             if (editor.DialogResult != DialogResult.OK)
                 return;
-
+            
             spiel.setFeldObjekte(editor.getHindernisse());
             zeichneFeld();
+          
         }
 
         private void neuesSpielToolStripMenuItem_Click(object sender, EventArgs e)
