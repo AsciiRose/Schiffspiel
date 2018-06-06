@@ -40,7 +40,7 @@ namespace grundspiel
                 return;
 
             spiel = new Spiel(15, 7, 5);
-            pictureBox1.BackgroundImage = Resource1.Map002;
+            pictureBox1.BackgroundImage = Resource1.wasser;
             pbSpielende.Minimum = 0;
             pbSpielende.Value = 0;
             pbSpielende.Maximum = spiel.getSpielende();
@@ -73,8 +73,9 @@ namespace grundspiel
             spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
             spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
             spiel.addFeldObjekt(new Item("Paddel", spiel.getZufallFreiesFeld(), 10, Resource1.item));
-            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
-            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 20, Resource1.item));
+            spiel.addFeldObjekt(new Item("Seil", spiel.getZufallFreiesFeld(), 20, Resource1.item));
+            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 25, Resource1.item));
+            spiel.addFeldObjekt(new Item("Fernrohr", spiel.getZufallFreiesFeld(), 25, Resource1.item));
             spiel.addFeldObjekt(new Item("Steuer", spiel.getZufallFreiesFeld(), 15, Resource1.item));
 
             spiel.addSpieler(new Spieler(neuesSpielForm.getNameSpieler1(), new Point(-1, 1), Resource1.player1, neuesSpielForm.getFarbeSpieler1()));
@@ -91,6 +92,7 @@ namespace grundspiel
             enableButtons();
             setNewRoundButtons();
             zeichneFeld();
+            pictureBox1.Show();
         }
 
         private void setNewRoundButtons()
@@ -264,6 +266,8 @@ namespace grundspiel
             SolidBrush spieler1pinsel = new SolidBrush(spiel.getSpieler1Color());
             SolidBrush spieler2pinsel = new SolidBrush(spiel.getSpieler2Color());
 
+            g.DrawImage(Resource1.Map002, 0, 0, pictureBox1.Width, pictureBox1.Height);
+
             for (int i = 0; i < spiel.getBreite(); i++)
             {
                 for (int j = 0; j < spiel.getHoehe(); j++)
@@ -407,24 +411,16 @@ namespace grundspiel
                 btnSteuerRechts.Enabled = false;
                 btnSwitchPlayer.Enabled = false;
                 btnWuerfeln.Enabled = false;
-                lblSpieler.Text = ""; 
+                lblSpieler.Text = "";
+
+                string message = "Das Schiff ist in den Hafen eingelaufen.\n\n";
 
                 if (name != null && punkte != null)
-                {
-                    MessageBox.Show(
-                        name + " hat mit " + punkte + " Punkten gewonnen und konnte sich als Kapitän durchsetzen!",
-                        "Spiel zu Ende",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
+                    message += name + " hat mit " + punkte + " Punkten gewonnen und konnte sich als Kapitän durchsetzen!";
                 else
-                {
-                    MessageBox.Show(
-                        "Unentschieden! Kein Pirat hat sich durchsetzen können.",
-                        "Spiel zu Ende",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
+                    message += "Unentschieden! Es konnte sich kein Pirat durchsetzen.";
+
+                MessageBox.Show(message, "Spiel zu Ende", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 spiel = null;
             }

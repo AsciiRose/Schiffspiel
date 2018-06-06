@@ -46,7 +46,6 @@
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbConsole = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBeenden = new System.Windows.Forms.Button();
             this.gbSpieler1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,14 +60,16 @@
             this.btnSteuerLinks = new System.Windows.Forms.Button();
             this.btnSteuerRechts = new System.Windows.Forms.Button();
             this.pbSpielende = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSpieler1.SuspendLayout();
             this.gbSpieler2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWuerfel
             // 
+            this.lblWuerfel.BackColor = System.Drawing.Color.Transparent;
             this.lblWuerfel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.lblWuerfel.Location = new System.Drawing.Point(543, 649);
             this.lblWuerfel.Name = "lblWuerfel";
@@ -140,6 +141,7 @@
             // lblSpieler
             // 
             this.lblSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSpieler.BackColor = System.Drawing.Color.Transparent;
             this.lblSpieler.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpieler.Location = new System.Drawing.Point(594, 590);
             this.lblSpieler.Name = "lblSpieler";
@@ -170,7 +172,6 @@
             // 
             // btnEditor
             // 
-            this.btnEditor.Enabled = false;
             this.btnEditor.Location = new System.Drawing.Point(12, 619);
             this.btnEditor.Name = "btnEditor";
             this.btnEditor.Size = new System.Drawing.Size(75, 23);
@@ -229,7 +230,6 @@
             // 
             // editorToolStripMenuItem
             // 
-            this.editorToolStripMenuItem.Enabled = false;
             this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
             this.editorToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.editorToolStripMenuItem.Text = "Editor";
@@ -246,15 +246,6 @@
             this.tbConsole.Size = new System.Drawing.Size(820, 95);
             this.tbConsole.TabIndex = 15;
             this.tbConsole.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(820, 420);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnBeenden
             // 
@@ -400,11 +391,23 @@
             this.pbSpielende.Step = 1;
             this.pbSpielende.TabIndex = 23;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(820, 420);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = global::grundspiel.Resource1.wasser;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(845, 725);
             this.Controls.Add(this.pbSpielende);
             this.Controls.Add(this.btnSteuerRechts);
@@ -436,11 +439,11 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Hauptfenster_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbSpieler1.ResumeLayout(false);
             this.gbSpieler1.PerformLayout();
             this.gbSpieler2.ResumeLayout(false);
             this.gbSpieler2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
