@@ -147,7 +147,17 @@ namespace grundspiel
         {
             return spieler2.getPosition();
         }
-        
+
+        public Spieler getSpieler1()
+        {
+            return spieler1;
+        }
+
+        public Spieler getSpieler2()
+        {
+            return spieler2;
+        }
+
         public void spielerLaufen(Point richtungsVektor)
         {
             Point position = new Point(spielerAktiv.getPosition().X, spielerAktiv.getPosition().Y);

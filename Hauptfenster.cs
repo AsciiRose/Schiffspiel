@@ -309,8 +309,11 @@ namespace grundspiel
 
             if (editor.DialogResult != DialogResult.OK)
                 return;
-            
+            Spieler tempSpieler1 = spiel.getSpieler1();
+            Spieler tempSpieler2 = spiel.getSpieler2();
             spiel.setFeldObjekte(editor.getHindernisse());
+            spiel.addFeldObjekt(tempSpieler1);
+            spiel.addFeldObjekt(tempSpieler2);
             zeichneFeld();
           
         }
