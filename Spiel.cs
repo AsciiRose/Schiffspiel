@@ -255,7 +255,7 @@ namespace grundspiel
                             }
                             else if (getObjektAufFeld(position).GetType() == typeof(Spieler))
                             {
-                                starteDuell();
+                                //starteDuell();
                             }
                         }
                         else if(naechstePosInFeld)
